@@ -14,56 +14,35 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Update cfg.json
+      - name: Get GitHub data
         run: |
-          echo "Getting GitHub data..."
+          curl -s https://api.github.com/users/rud1x > profile.json
+          REPOS=$(grep -o '"public_repos":[0-9]*' profile.json | grep -o '[0-9]*')
+          FOLLOWERS=$(grep -o '"followers":[0-9]*' profile.json | grep -o '[0-9]*')
           
-          PROFILE=$(curl -s https://api.github.com/users/rud1x)
-          REPOS=$(echo $PROFILE | grep -o '"public_repos":[0-9]*' | grep -o '[0-9]*')
-          FOLLOWERS=$(echo $PROFILE | grep -o '"followers":[0-9]*' | grep -o '[0-9]*')
-          
-          echo "Calculating stars..."
-          STARS=0
-          for repo in $(curl -s https://api.github.com/users/rud1x/repos?per_page=100 | grep -o '"name":"[^"]*"' | cut -d'"' -f4); do
-            if [ -n "$repo" ]; then
-              REPO_STARS=$(curl -s https://api.github.com/repos/rud1x/$repo | grep -o '"stargazers_count":[0-9]*' | grep -o '[0-9]*')
-              STARS=$((STARS + REPO_STARS))
-            fi
-          done
-          echo "Total stars: $STARS"
+          echo "repos=$REPOS"
+          echo "followers=$FOLLOWERS"
           
           NOW=$(date -Iseconds)
           
-          cat > cfg.json << EOF
-{
-  "repos": $REPOS,
-  "stars": $STARS,
-  "followers": $FOLLOWERS,
-  "gists": 0,
-  "totalCommits": 0,
-  "pullRequests": 0,
-  "issues": 3,
-  "lastCommits": [],
-  "updatedAt": "$NOW"
-}
-EOF
+          echo '{' > cfg.json
+          echo '  "repos": '$REPOS',' >> cfg.json
+          echo '  "stars": 13,' >> cfg.json
+          echo '  "followers": '$FOLLOWERS',' >> cfg.json
+          echo '  "gists": 0,' >> cfg.json
+          echo '  "totalCommits": 0,' >> cfg.json
+          echo '  "pullRequests": 0,' >> cfg.json
+          echo '  "issues": 3,' >> cfg.json
+          echo '  "lastCommits": [],' >> cfg.json
+          echo '  "updatedAt": "'$NOW'"' >> cfg.json
+          echo '}' >> cfg.json
           
-          echo "cfg.json created:"
           cat cfg.json
-          
+      
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          
           git add cfg.json
-          
-          if git diff --cached --quiet; then
-            echo "No changes"
-            exit 0
-          fi
-          
-          git commit -m "Auto-update cfg.json"
+          git commit -m "Update cfg.json" || echo "No changes"
           git push
-          
-          echo "Done!"
