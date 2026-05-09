@@ -1,0 +1,66 @@
+name: Update GitHub Stats
+
+on:
+  schedule:
+    - cron: '0 */1 * * *'   # Каждый час
+  workflow_dispatch:          # Ручной запуск
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Get GitHub data
+        run: |
+          # Базовые данные
+          PROFILE=$(curl -s https://api.github.com/users/rud1x)
+          REPOS=$(echo $PROFILE | jq '.public_repos')
+          FOLLOWERS=$(echo $PROFILE | jq '.followers')
+          GISTS=$(echo $PROFILE | jq '.public_gists')
+          
+          # Звёзды
+          STARS=0
+          for repo in $(curl -s https://api.github.com/users/rud1x/repos?per_page=100 | jq -r '.[].name'); do
+            REPO_STARS=$(curl -s https://api.github.com/repos/rud1x/$repo | jq '.stargazers_count')
+            STARS=$((STARS + REPO_STARS))
+          done
+          
+          # Последние коммиты
+          COMMITS_JSON=$(curl -s https://api.github.com/users/rud1x/events/public | jq '[.[] | select(.type=="PushEvent")] | .[0:5] | map({
+            message: (.payload.commits[0].message // "Commit"),
+            repo: .repo.name,
+            date: .created_at
+          })')
+          
+          # Создаём JSON
+          cat > cfg.json << EOF
+{
+  "repos": $REPOS,
+  "stars": $STARS,
+  "followers": $FOLLOWERS,
+  "gists": $GISTS,
+  "pullRequests": 0,
+  "issues": 3,
+  "languages": [
+    {"name": "Python", "percent": 80},
+    {"name": "HTML", "percent": 10},
+    {"name": "CSS", "percent": 5},
+    {"name": "JavaScript", "percent": 5}
+  ],
+  "lastCommits": $COMMITS_JSON,
+  "updatedAt": "$(date -Iseconds)"
+}
+EOF
+          
+      - name: Commit and push
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git pull origin main --rebase || true
+          git add cfg.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update stats [skip ci]"
+          git push origin main
