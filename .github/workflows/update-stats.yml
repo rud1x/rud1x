@@ -2,8 +2,8 @@ name: Update cfg.json Stats
 
 on:
   schedule:
-    - cron: '0 * * * *' # Раз в час
-  workflow_dispatch: # Возможность запуска вручную
+    - cron: '0 * * * *'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -16,35 +16,47 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Fetch GitHub Data
+      - name: Fetch Detailed GitHub Data
         run: |
-          # Получаем основной профиль
+          # 1. Общие данные профиля (репозитории, фолловеры)
           USER_DATA=$(curl -s https://api.github.com/users/rud1x)
-          
           REPOS=$(echo $USER_DATA | jq '.public_repos')
           FOLLOWERS=$(echo $USER_DATA | jq '.followers')
           GISTS=$(echo $USER_DATA | jq '.public_gists')
-          
-          # Считаем суммарное количество звезд во всех репозиториях
+
+          # 2. Суммарные звезды (по всем репозиториям)
           STARS=$(curl -s "https://api.github.com/users/rud1x/repos?per_page=100" | jq '[.[].stargazers_count] | add')
-          
+
+          # 3. Всего коммитов (во всех публичных репозиториях)
+          # Используем поиск, так как это самый быстрый способ получить общее число
+          COMMITS=$(curl -s "https://api.github.com/search/commits?q=author:rud1x" -H "Accept: application/vnd.github.cloak-preview" | jq '.total_count')
+
+          # 4. Pull Requests
+          PRS=$(curl -s "https://api.github.com/search/issues?q=author:rud1x+type:pr" | jq '.total_count')
+
+          # 5. Issues (созданные тобой)
+          ISSUES=$(curl -s "https://api.github.com/search/issues?q=author:rud1x+type:issue" | jq '.total_count')
+
           NOW=$(date -Iseconds)
 
-          # Собираем JSON красиво и безопасно через jq
+          # Собираем всё в cfg.json
           jq -n \
             --arg repos "$REPOS" \
             --arg stars "$STARS" \
             --arg followers "$FOLLOWERS" \
             --arg gists "$GISTS" \
+            --arg commits "$COMMITS" \
+            --arg prs "$PRS" \
+            --arg issues "$ISSUES" \
             --arg updated "$NOW" \
             '{
               repos: ($repos | tonumber),
               stars: ($stars | tonumber // 0),
               followers: ($followers | tonumber),
               gists: ($gists | tonumber),
-              totalCommits: 0,
-              pullRequests: 0,
-              issues: 0,
+              totalCommits: ($commits | tonumber // 0),
+              pullRequests: ($prs | tonumber // 0),
+              issues: ($issues | tonumber // 0),
               lastCommits: [],
               updatedAt: $updated
             }' > cfg.json
@@ -56,11 +68,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
-          # Проверяем, есть ли изменения в файле, чтобы не делать пустых коммитов
           if git diff --quiet cfg.json; then
-            echo "No changes detected"
+            echo "No changes"
           else
             git add cfg.json
-            git commit -m "chore: update stats in cfg.json"
+            git commit -m "style: update dashboard stats"
             git push origin main
           fi
