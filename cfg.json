@@ -5,7 +5,12 @@
   "gists": 0,
   "pullRequests": 0,
   "issues": 3,
-  "languages": [],
-  "lastCommits": [],
-  "updatedAt": "2026-01-01T00:00:00+00:00"
+  "languages": [
+    {"name": "Python", "percent": 80},
+    {"name": "HTML", "percent": 10},
+    {"name": "CSS", "percent": 5},
+    {"name": "JavaScript", "percent": 5}
+  ],
+  "lastCommits": [{"message":"Commit","repo":"rud1x/rud1x","date":"2026-05-09T06:21:31Z"},{"message":"Commit","repo":"rud1x/rud1x","date":"2026-05-09T06:19:33Z"},{"message":"Commit","repo":"rud1x/rud1x","date":"2026-05-09T06:18:03Z"},{"message":"Commit","repo":"rud1x/rud1x","date":"2026-05-09T06:17:28Z"},{"message":"Commit","repo":"rud1x/github-stats-terminal-style","date":"2026-05-09T06:17:00Z"}],
+  "updatedAt": "2026-05-09T06:21:47+00:00"
 }
