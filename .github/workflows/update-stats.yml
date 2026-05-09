@@ -14,6 +14,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
+      - name: Install jq
+        run: sudo apt-get install -y jq
+      
       - name: Get GitHub data
         run: |
           # Базовые данные
@@ -30,48 +33,37 @@ jobs:
           done
           
           # Последние коммиты
-          COMMITS_JSON=$(curl -s https://api.github.com/users/rud1x/events/public | jq '[.[] | select(.type=="PushEvent")] | .[0:5] | map({
+          COMMITS_JSON=$(curl -s https://api.github.com/users/rud1x/events/public | jq -c '[.[] | select(.type=="PushEvent")] | .[0:5] | map({
             message: (.payload.commits[0].message // "Commit"),
             repo: .repo.name,
             date: .created_at
           })')
           
-          # Создаём JSON (временно с фиксированными языками)
-          cat > cfg.json << EOF
-{
-  "repos": $REPOS,
-  "stars": $STARS,
-  "followers": $FOLLOWERS,
-  "gists": $GISTS,
-  "pullRequests": 0,
-  "issues": 3,
-  "languages": [
-    {"name": "Python", "percent": 80},
-    {"name": "HTML", "percent": 10},
-    {"name": "CSS", "percent": 5},
-    {"name": "JavaScript", "percent": 5}
-  ],
-  "lastCommits": $COMMITS_JSON,
-  "updatedAt": "$(date -Iseconds)"
-}
-EOF
+          # Создаём JSON напрямую через echo
+          echo '{
+            "repos": '$REPOS',
+            "stars": '$STARS',
+            "followers": '$FOLLOWERS',
+            "gists": '$GISTS',
+            "pullRequests": 0,
+            "issues": 3,
+            "languages": [
+              {"name": "Python", "percent": 80},
+              {"name": "HTML", "percent": 10},
+              {"name": "CSS", "percent": 5},
+              {"name": "JavaScript", "percent": 5}
+            ],
+            "lastCommits": '$COMMITS_JSON',
+            "updatedAt": "'$(date -Iseconds)'"
+          }' > cfg.json
           
-          echo "✅ cfg.json создан:"
+          echo "✅ cfg.json created:"
           cat cfg.json
           
       - name: Commit and push
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
-          
-          # Важно: используем main, а не master
-          git pull origin main --rebase || true
           git add cfg.json
-          
-          if git diff --cached --quiet; then
-            echo "Нет изменений для коммита"
-            exit 0
-          fi
-          
-          git commit -m "Auto-update stats [skip ci]"
+          git diff --cached --quiet && echo "No changes" || git commit -m "Auto-update stats [skip ci]"
           git push origin main
