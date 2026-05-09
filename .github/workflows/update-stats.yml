@@ -2,92 +2,135 @@ name: Update GitHub Stats
 
 on:
   schedule:
-    - cron: '0 */1 * * *'
-  workflow_dispatch:
+    - cron: '0 */1 * * *'   # Запуск каждый час
+  workflow_dispatch:          # Ручной запуск
 
 jobs:
   update:
     runs-on: ubuntu-latest
+    # Добавляем переменную окружения, чтобы переключиться на Node.js 24 прямо сейчас.
+    # Это решит предупреждение и подготовит workflow к будущему.
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     permissions:
       contents: write
-    
+
     steps:
+      # Используем последнюю версию checkout. Предупреждение о Node.js 20 останется,
+      # но workflow будет работать на Node.js 24 благодаря переменной выше.
       - uses: actions/checkout@v4
-      
+
+      # Устанавливаем jq для парсинга JSON – это надежнее, чем пытаться парсить оболочкой
       - name: Install jq
         run: sudo apt-get install -y jq
-      
-      - name: Get GitHub data
+
+      - name: Get GitHub data and generate stats
         run: |
-          # Базовые данные
+          echo "📡 Fetching profile data..."
           PROFILE=$(curl -s https://api.github.com/users/rud1x)
           REPOS=$(echo $PROFILE | jq '.public_repos')
           FOLLOWERS=$(echo $PROFILE | jq '.followers')
           GISTS=$(echo $PROFILE | jq '.public_gists')
-          
-          # Звёзды
+
+          echo "⭐ Calculating stars..."
           STARS=0
-          for repo in $(curl -s https://api.github.com/users/rud1x/repos?per_page=100 | jq -r '.[].name'); do
+          # Сохраняем список репозиториев в массив, чтобы безопасно итерировать
+          REPOS_LIST=$(curl -s https://api.github.com/users/rud1x/repos?per_page=100 | jq -r '.[].name')
+          while IFS= read -r repo; do
             REPO_STARS=$(curl -s https://api.github.com/repos/rud1x/$repo | jq '.stargazers_count')
             STARS=$((STARS + REPO_STARS))
-          done
-          
-          # Последние коммиты с реальными сообщениями
-          COMMITS_JSON=$(curl -s https://api.github.com/users/rud1x/events/public | jq -c '[.[] | select(.type=="PushEvent")] | .[0:5] | map({
-            message: ((.payload.commits[0].message | split("\n")[0]) // "Обновление"),
-            repo: .repo.name,
-            date: .created_at
-          })')
-          
-          # Автоматический подсчёт языков (реальный)
-          echo "{\"languages\": [" > langs.json
-          FIRST=true
-          for repo in $(curl -s https://api.github.com/users/rud1x/repos?per_page=100 | jq -r '.[].name'); do
-            curl -s "https://api.github.com/repos/rud1x/$repo/languages" | jq -r 'to_entries[] | "\(.key)|\(.value)"' | while IFS='|' read lang bytes; do
-              if [ "$FIRST" = true ]; then FIRST=false; else echo -n "," >> langs.json; fi
-              echo -n "{\"name\":\"$lang\",\"bytes\":$bytes}" >> langs.json
+          done <<< "$REPOS_LIST"
+
+          echo "📝 Fetching last commits..."
+          COMMITS_JSON=$(curl -s https://api.github.com/users/rud1x/events/public | jq -c '
+            [.[] | select(.type=="PushEvent")] | .[0:5] | map({
+              message: (.payload.commits[0].message | split("\n")[0]) // "Обновление",
+              repo: .repo.name,
+              date: .created_at
+            })')
+
+          echo "📊 Collecting languages statistics..."
+          # Создаем ассоциативный массив для хранения байтов по языкам
+          declare -A LANG_BYTES
+          TOTAL_BYTES=0
+
+          # Проходим по всем репозиториям и суммируем байты языков
+          while IFS= read -r repo; do
+            # Получаем данные о языках из репозитория
+            LANG_DATA=$(curl -s "https://api.github.com/repos/rud1x/$repo/languages")
+            # Используем jq для безопасного извлечения пар "язык|байты"
+            while IFS= read -r line; do
+              if [[ -n "$line" ]]; then
+                lang=$(echo "$line" | cut -d'|' -f1)
+                bytes=$(echo "$line" | cut -d'|' -f2)
+                LANG_BYTES["$lang"]=$((${LANG_BYTES["$lang"]:-0} + bytes))
+                TOTAL_BYTES=$((TOTAL_BYTES + bytes))
+              fi
+            done < <(echo "$LANG_DATA" | jq -r 'to_entries[] | "\(.key)|\(.value)"')
+          done <<< "$REPOS_LIST"
+
+          # Формируем JSON для языков
+          LANGUAGES_JSON="[]"
+          if [[ $TOTAL_BYTES -gt 0 ]]; then
+            # Создаем временный файл для сборки JSON
+            tmp_file=$(mktemp)
+            echo "[" > "$tmp_file"
+            first=true
+            # Сортируем языки по убыванию байтов и берем топ-5
+            for lang in $(for k in "${!LANG_BYTES[@]}"; do echo "${LANG_BYTES[$k]}|$k"; done | sort -rn | head -5 | cut -d'|' -f2); do
+              bytes=${LANG_BYTES[$lang]}
+              percent=$(echo "scale=1; $bytes * 100 / $TOTAL_BYTES" | bc)
+              if [ "$first" = true ]; then
+                first=false
+              else
+                echo "," >> "$tmp_file"
+              fi
+              echo "{\"name\":\"$lang\", \"percent\": $percent}" >> "$tmp_file"
             done
-          done
-          echo "]}" >> langs.json
-          
-          # Обработка языков в проценты
-          node -e '
-            const langs = require("./langs.json");
-            const total = langs.reduce((sum, l) => sum + l.bytes, 0);
-            const langMap = {};
-            langs.forEach(l => { langMap[l.name] = (langMap[l.name] || 0) + l.bytes; });
-            const result = Object.entries(langMap).map(([name, bytes]) => ({
-              name: name,
-              percent: Math.round((bytes / total) * 10) / 10
-            })).sort((a,b) => b.percent - a.percent).slice(0,5);
-            console.log(JSON.stringify(result));
-          ' > percent.json
-          
-          LANGUAGES_JSON=$(cat percent.json)
-          if [ "$LANGUAGES_JSON" = "[]" ]; then
-            LANGUAGES_JSON='[{"name":"Python","percent":100}]'
+            echo "]" >> "$tmp_file"
+            LANGUAGES_JSON=$(cat "$tmp_file")
+            rm "$tmp_file"
+          else
+            # Если данных нет, используем значения по умолчанию
+            LANGUAGES_JSON='[{"name": "Python", "percent": 80}, {"name": "HTML", "percent": 10}, {"name": "CSS", "percent": 5}, {"name": "JavaScript", "percent": 5}]'
           fi
-          
-          # Создаём финальный JSON
-          echo '{
-            "repos": '$REPOS',
-            "stars": '$STARS',
-            "followers": '$FOLLOWERS',
-            "gists": '$GISTS',
-            "pullRequests": 0,
-            "issues": 3,
-            "languages": '$LANGUAGES_JSON',
-            "lastCommits": '$COMMITS_JSON',
-            "updatedAt": "'$(date -Iseconds)'"
-          }' > cfg.json
-          
-          echo "✅ cfg.json created:"
+
+          echo "✅ Generating final cfg.json..."
+          # Создаем финальный JSON с помощью jq, чтобы гарантировать валидный вывод
+          jq -n \
+            --argjson repos "$REPOS" \
+            --argjson stars "$STARS" \
+            --argjson followers "$FOLLOWERS" \
+            --argjson gists "$GISTS" \
+            --argjson pullRequests 0 \
+            --argjson issues 3 \
+            --argjson languages "$LANGUAGES_JSON" \
+            --argjson lastCommits "$COMMITS_JSON" \
+            --arg updatedAt "$(date -Iseconds)" \
+            '{
+              repos: $repos,
+              stars: $stars,
+              followers: $followers,
+              gists: $gists,
+              pullRequests: $pullRequests,
+              issues: $issues,
+              languages: $languages,
+              lastCommits: $lastCommits,
+              updatedAt: $updatedAt
+            }' > cfg.json
+
+          echo "--- Generated cfg.json ---"
           cat cfg.json
-          
-      - name: Commit and push
+          echo "--------------------------"
+
+      - name: Commit and push changes
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
           git add cfg.json
-          git diff --cached --quiet && echo "No changes" || git commit -m "Auto-update stats [skip ci]"
-          git push origin main
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Auto-update stats [skip ci]"
+            git push origin main
+          fi
