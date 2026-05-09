@@ -2,39 +2,36 @@ name: Update GitHub Stats
 
 on:
   schedule:
-    - cron: '*/30 * * * *'
+    # Запуск на 17 и 47 минуте, чтобы не стоять в очереди в ровные полчаса
+    - cron: '17,47 * * * *'
   workflow_dispatch:
 
 jobs:
   update:
     runs-on: ubuntu-latest
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     permissions:
       contents: write
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install jq
-        run: sudo apt-get install -y jq
-
       - name: Get GitHub data
         run: |
-          PROFILE=$(curl -s https://api.github.com/users/rud1x)
-          REPOS=$(echo $PROFILE | jq '.public_repos')
-          FOLLOWERS=$(echo $PROFILE | jq '.followers')
+          # Используем встроенный токен GITHUB_TOKEN для обхода лимитов API
+          AUTH_HEADER="Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}"
           
-          # Считаем звёзды
-          STARS=0
-          for repo in $(curl -s https://api.github.com/users/rud1x/repos?per_page=100 | jq -r '.[].name'); do
-            REPO_STARS=$(curl -s https://api.github.com/repos/rud1x/$repo | jq '.stargazers_count')
-            STARS=$((STARS + REPO_STARS))
-          done
+          # 1. Получаем профиль
+          PROFILE=$(curl -s -H "$AUTH_HEADER" https://api.github.com/users/rud1x)
+          REPOS=$(echo "$PROFILE" | jq '.public_repos')
+          FOLLOWERS=$(echo "$PROFILE" | jq '.followers')
           
-          # Считаем общее количество коммитов
-          TOTAL_COMMITS=$(curl -s https://api.github.com/users/rud1x/events/public | jq '[.[] | select(.type=="PushEvent")] | length')
+          # 2. Считаем ВСЕ звёзды ОДНИМ запросом (без цикла по каждому репозиторию)
+          STARS=$(curl -s -H "$AUTH_HEADER" "https://api.github.com/users/rud1x/repos?per_page=100" | jq '[.[].stargazers_count] | add')
           
+          # 3. Считаем публичные коммиты (последние события)
+          TOTAL_COMMITS=$(curl -s -H "$AUTH_HEADER" https://api.github.com/users/rud1x/events/public | jq '[.[] | select(.type=="PushEvent")] | length')
+          
+          # Записываем в JSON
           jq -n \
             --argjson repos "$REPOS" \
             --argjson stars "$STARS" \
@@ -54,9 +51,17 @@ jobs:
             }' > cfg.json
 
       - name: Commit and push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "actions@github.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add cfg.json
-          git diff --cached --quiet && echo "No changes" || git commit -m "Auto-update stats [skip ci]"
-          git push origin main
+          
+          # Проверяем изменения. Если их нет — воркфлоу завершится успешно
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: auto-update stats"
+            git push origin main
+          fi
