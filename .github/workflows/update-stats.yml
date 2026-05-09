@@ -1,67 +1,80 @@
-name: Update GitHub Stats
+name: Update cfg.json Stats
 
 on:
   schedule:
-    # Запуск на 17 и 47 минуте, чтобы не стоять в очереди в ровные полчаса
-    - cron: '17,47 * * * *'
+    - cron: '0 */1 * * *'   # Каждый час
   workflow_dispatch:
 
-jobs:
-  update:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
+permissions:
+  contents: write
 
+jobs:
+  update-cfg:
+    runs-on: ubuntu-latest
+    
     steps:
       - uses: actions/checkout@v4
-
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Install jq
+        run: sudo apt-get install -y jq
+      
       - name: Get GitHub data
         run: |
-          # Используем встроенный токен GITHUB_TOKEN для обхода лимитов API
-          AUTH_HEADER="Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}"
+          echo "🕐 Получаем данные..."
           
-          # 1. Получаем профиль
-          PROFILE=$(curl -s -H "$AUTH_HEADER" https://api.github.com/users/rud1x)
-          REPOS=$(echo "$PROFILE" | jq '.public_repos')
-          FOLLOWERS=$(echo "$PROFILE" | jq '.followers')
+          PROFILE=$(curl -s https://api.github.com/users/rud1x)
+          REPOS=$(echo $PROFILE | jq '.public_repos')
+          FOLLOWERS=$(echo $PROFILE | jq '.followers')
+          GISTS=$(echo $PROFILE | jq '.public_gists')
           
-          # 2. Считаем ВСЕ звёзды ОДНИМ запросом (без цикла по каждому репозиторию)
-          STARS=$(curl -s -H "$AUTH_HEADER" "https://api.github.com/users/rud1x/repos?per_page=100" | jq '[.[].stargazers_count] | add')
+          # Считаем звёзды
+          STARS=0
+          for repo in $(curl -s https://api.github.com/users/rud1x/repos?per_page=100 | jq -r '.[].name'); do
+            REPO_STARS=$(curl -s https://api.github.com/repos/rud1x/$repo | jq '.stargazers_count')
+            STARS=$((STARS + REPO_STARS))
+          done
           
-          # 3. Считаем публичные коммиты (последние события)
-          TOTAL_COMMITS=$(curl -s -H "$AUTH_HEADER" https://api.github.com/users/rud1x/events/public | jq '[.[] | select(.type=="PushEvent")] | length')
+          # Получаем коммиты
+          COMMITS_JSON=$(curl -s https://api.github.com/users/rud1x/events/public | jq -c '[.[] | select(.type=="PushEvent")] | .[0:5] | map({
+            message: (.payload.commits[0].message // "Commit"),
+            repo: .repo.name,
+            date: .created_at
+          })')
+          TOTAL_COMMITS=$(echo $COMMITS_JSON | jq 'length')
           
-          # Записываем в JSON
-          jq -n \
-            --argjson repos "$REPOS" \
-            --argjson stars "$STARS" \
-            --argjson followers "$FOLLOWERS" \
-            --argjson totalCommits "$TOTAL_COMMITS" \
-            --argjson pullRequests 0 \
-            --argjson issues 3 \
-            --arg updatedAt "$(date -Iseconds)" \
-            '{
-              repos: $repos,
-              stars: $stars,
-              followers: $followers,
-              totalCommits: $totalCommits,
-              pullRequests: $pullRequests,
-              issues: $issues,
-              updatedAt: $updatedAt
-            }' > cfg.json
-
+          # Создаём cfg.json
+          cat > cfg.json << EOF
+{
+  "repos": $REPOS,
+  "stars": $STARS,
+  "followers": $FOLLOWERS,
+  "gists": $GISTS,
+  "totalCommits": $TOTAL_COMMITS,
+  "pullRequests": 0,
+  "issues": 3,
+  "lastCommits": $COMMITS_JSON,
+  "updatedAt": "$(date -Iseconds)"
+}
+EOF
+          
+          echo "✅ cfg.json создан:"
+          cat cfg.json
+          
       - name: Commit and push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
           git add cfg.json
           
-          # Проверяем изменения. Если их нет — воркфлоу завершится успешно
           if git diff --cached --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "chore: auto-update stats"
-            git push origin main
+            echo "ℹ️ Нет изменений для коммита"
+            exit 0
           fi
+          
+          git commit -m "Update cfg.json [$(date +%H:%M:%S)]"
+          git push origin main
+          
+          echo "✅ cfg.json обновлён!"
