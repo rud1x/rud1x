@@ -16,12 +16,13 @@ jobs:
       
       - name: Update cfg.json
         run: |
-          echo "📡 Получаем данные профиля..."
+          echo "Getting GitHub data..."
+          
           PROFILE=$(curl -s https://api.github.com/users/rud1x)
           REPOS=$(echo $PROFILE | grep -o '"public_repos":[0-9]*' | grep -o '[0-9]*')
           FOLLOWERS=$(echo $PROFILE | grep -o '"followers":[0-9]*' | grep -o '[0-9]*')
           
-          echo "⭐ Считаем звёзды..."
+          echo "Calculating stars..."
           STARS=0
           for repo in $(curl -s https://api.github.com/users/rud1x/repos?per_page=100 | grep -o '"name":"[^"]*"' | cut -d'"' -f4); do
             if [ -n "$repo" ]; then
@@ -29,13 +30,11 @@ jobs:
               STARS=$((STARS + REPO_STARS))
             fi
           done
-          echo "   Всего звёзд: $STARS"
+          echo "Total stars: $STARS"
           
-          echo "📝 Получаем коммиты..."
-          COMMITS_DATA=$(curl -s https://api.github.com/users/rud1x/events/public)
+          NOW=$(date -Iseconds)
           
-          echo "📦 Создаём cfg.json..."
-          cat > cfg.json << 'EOF'
+          cat > cfg.json << EOF
 {
   "repos": $REPOS,
   "stars": $STARS,
@@ -49,13 +48,7 @@ jobs:
 }
 EOF
           
-          # Заменяем переменные через sed (без jq)
-          sed -i "s/\$REPOS/$REPOS/g" cfg.json
-          sed -i "s/\$STARS/$STARS/g" cfg.json
-          sed -i "s/\$FOLLOWERS/$FOLLOWERS/g" cfg.json
-          sed -i "s/\$NOW/$(date -Iseconds)/g" cfg.json
-          
-          echo "✅ cfg.json создан:"
+          echo "cfg.json created:"
           cat cfg.json
           
       - name: Commit and push
@@ -66,11 +59,11 @@ EOF
           git add cfg.json
           
           if git diff --cached --quiet; then
-            echo "Нет изменений"
+            echo "No changes"
             exit 0
           fi
           
           git commit -m "Auto-update cfg.json"
           git push
           
-          echo "✅ Отправлено!"
+          echo "Done!"
