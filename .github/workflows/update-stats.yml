@@ -19,113 +19,44 @@ jobs:
       - name: Install jq
         run: sudo apt-get install -y jq
 
-      - name: Get all GitHub data
+      - name: Get GitHub data
         run: |
-          echo "📡 1. Получаем данные профиля..."
           PROFILE=$(curl -s https://api.github.com/users/rud1x)
           REPOS=$(echo $PROFILE | jq '.public_repos')
           FOLLOWERS=$(echo $PROFILE | jq '.followers')
-          GISTS=$(echo $PROFILE | jq '.public_gists')
           
-          echo "   ✅ Репозиториев: $REPOS, Подписчиков: $FOLLOWERS"
-
-          echo "⭐ 2. Считаем звёзды..."
+          # Считаем звёзды
           STARS=0
-          REPOS_LIST=$(curl -s https://api.github.com/users/rud1x/repos?per_page=100)
-          for repo in $(echo $REPOS_LIST | jq -r '.[].name'); do
+          for repo in $(curl -s https://api.github.com/users/rud1x/repos?per_page=100 | jq -r '.[].name'); do
             REPO_STARS=$(curl -s https://api.github.com/repos/rud1x/$repo | jq '.stargazers_count')
             STARS=$((STARS + REPO_STARS))
           done
-          echo "   ✅ Всего звёзд: $STARS"
-
-          echo "📝 3. Получаем последние коммиты..."
-          COMMITS_JSON=$(curl -s https://api.github.com/users/rud1x/events/public | jq -c '
-            [.[] | select(.type=="PushEvent")] | .[0:5] | map({
-              message: (.payload.commits[0].message | split("\n")[0]),
-              repo: .repo.name,
-              date: .created_at
-            })')
-          echo "   ✅ Получено коммитов: $(echo $COMMITS_JSON | jq 'length')"
-
-          echo "🔤 4. Анализируем языки программирования..."
           
-          # Создаём временный файл для сбора языков
-          echo "{}" > langs_temp.json
-          
-          for repo in $(echo $REPOS_LIST | jq -r '.[].name'); do
-            echo "     Обрабатываем: $repo"
-            LANG_DATA=$(curl -s "https://api.github.com/repos/rud1x/$repo/languages")
-            
-            # Объединяем данные языков
-            LANG_DATA=$(echo "$LANG_DATA" | jq -c '.')
-            if [ "$LANG_DATA" != "{}" ]; then
-              langs_temp=$(cat langs_temp.json)
-              merged=$(jq -n --argjson a "$langs_temp" --argjson b "$LANG_DATA" '$a * $b | with_entries(.value += $b[.key])')
-              echo "$merged" > langs_temp.json
-            fi
-          done
-          
-          # Считаем общее количество байтов
-          TOTAL_BYTES=$(cat langs_temp.json | jq '[.[]] | add')
-          
-          if [ "$TOTAL_BYTES" = "null" ] || [ "$TOTAL_BYTES" -eq 0 ]; then
-            echo "   ⚠️ Языки не найдены, использую дефолтные"
-            LANGUAGES_JSON='[
-              {"name": "Python", "percent": 80},
-              {"name": "HTML", "percent": 10},
-              {"name": "CSS", "percent": 5},
-              {"name": "JavaScript", "percent": 5}
-            ]'
-          else
-            # Формируем JSON с процентами
-            LANGUAGES_JSON=$(cat langs_temp.json | jq -c --argjson total "$TOTAL_BYTES" '
-              to_entries | 
-              map({name: .key, bytes: .value}) |
-              map({name: .name, percent: ((.bytes / $total) * 100 | round)}) |
-              sort_by(-.percent) |
-              .[0:5]
-            ')
-            echo "   ✅ Найдено языков: $(echo $LANGUAGES_JSON | jq 'length')"
-          fi
-
-          echo "📦 5. Создаём итоговый cfg.json..."
+          # Считаем общее количество коммитов
+          TOTAL_COMMITS=$(curl -s https://api.github.com/users/rud1x/events/public | jq '[.[] | select(.type=="PushEvent")] | length')
           
           jq -n \
             --argjson repos "$REPOS" \
             --argjson stars "$STARS" \
             --argjson followers "$FOLLOWERS" \
-            --argjson gists "$GISTS" \
+            --argjson totalCommits "$TOTAL_COMMITS" \
             --argjson pullRequests 0 \
             --argjson issues 3 \
-            --argjson languages "$LANGUAGES_JSON" \
-            --argjson lastCommits "$COMMITS_JSON" \
             --arg updatedAt "$(date -Iseconds)" \
             '{
               repos: $repos,
               stars: $stars,
               followers: $followers,
-              gists: $gists,
+              totalCommits: $totalCommits,
               pullRequests: $pullRequests,
               issues: $issues,
-              languages: $languages,
-              lastCommits: $lastCommits,
               updatedAt: $updatedAt
             }' > cfg.json
-
-          echo ""
-          echo "========== ГОТОВЫЙ JSON =========="
-          cat cfg.json
-          echo "=================================="
 
       - name: Commit and push
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
           git add cfg.json
-          if git diff --cached --quiet; then
-            echo "ℹ️ Нет изменений для коммита"
-          else
-            git commit -m "Auto-update stats [skip ci]"
-            git push origin main
-            echo "✅ Изменения отправлены в репозиторий"
-          fi
+          git diff --cached --quiet && echo "No changes" || git commit -m "Auto-update stats [skip ci]"
+          git push origin main
