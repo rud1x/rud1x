@@ -32,14 +32,43 @@ jobs:
             STARS=$((STARS + REPO_STARS))
           done
           
-          # Последние коммиты
+          # Последние коммиты с реальными сообщениями
           COMMITS_JSON=$(curl -s https://api.github.com/users/rud1x/events/public | jq -c '[.[] | select(.type=="PushEvent")] | .[0:5] | map({
-            message: (.payload.commits[0].message // "Commit"),
+            message: ((.payload.commits[0].message | split("\n")[0]) // "Обновление"),
             repo: .repo.name,
             date: .created_at
           })')
           
-          # Создаём JSON напрямую через echo
+          # Автоматический подсчёт языков (реальный)
+          echo "{\"languages\": [" > langs.json
+          FIRST=true
+          for repo in $(curl -s https://api.github.com/users/rud1x/repos?per_page=100 | jq -r '.[].name'); do
+            curl -s "https://api.github.com/repos/rud1x/$repo/languages" | jq -r 'to_entries[] | "\(.key)|\(.value)"' | while IFS='|' read lang bytes; do
+              if [ "$FIRST" = true ]; then FIRST=false; else echo -n "," >> langs.json; fi
+              echo -n "{\"name\":\"$lang\",\"bytes\":$bytes}" >> langs.json
+            done
+          done
+          echo "]}" >> langs.json
+          
+          # Обработка языков в проценты
+          node -e '
+            const langs = require("./langs.json");
+            const total = langs.reduce((sum, l) => sum + l.bytes, 0);
+            const langMap = {};
+            langs.forEach(l => { langMap[l.name] = (langMap[l.name] || 0) + l.bytes; });
+            const result = Object.entries(langMap).map(([name, bytes]) => ({
+              name: name,
+              percent: Math.round((bytes / total) * 10) / 10
+            })).sort((a,b) => b.percent - a.percent).slice(0,5);
+            console.log(JSON.stringify(result));
+          ' > percent.json
+          
+          LANGUAGES_JSON=$(cat percent.json)
+          if [ "$LANGUAGES_JSON" = "[]" ]; then
+            LANGUAGES_JSON='[{"name":"Python","percent":100}]'
+          fi
+          
+          # Создаём финальный JSON
           echo '{
             "repos": '$REPOS',
             "stars": '$STARS',
@@ -47,12 +76,7 @@ jobs:
             "gists": '$GISTS',
             "pullRequests": 0,
             "issues": 3,
-            "languages": [
-              {"name": "Python", "percent": 80},
-              {"name": "HTML", "percent": 10},
-              {"name": "CSS", "percent": 5},
-              {"name": "JavaScript", "percent": 5}
-            ],
+            "languages": '$LANGUAGES_JSON',
             "lastCommits": '$COMMITS_JSON',
             "updatedAt": "'$(date -Iseconds)'"
           }' > cfg.json
