@@ -17,25 +17,30 @@ jobs:
       - name: Get GitHub data
         run: |
           curl -s https://api.github.com/users/rud1x > profile.json
-          REPOS=$(grep -o '"public_repos":[0-9]*' profile.json | grep -o '[0-9]*')
-          FOLLOWERS=$(grep -o '"followers":[0-9]*' profile.json | grep -o '[0-9]*')
+          
+          # Парсим JSON через jq (он уже установлен на GitHub runners)
+          REPOS=$(cat profile.json | jq '.public_repos')
+          FOLLOWERS=$(cat profile.json | jq '.followers')
+          GISTS=$(cat profile.json | jq '.public_gists')
           
           echo "repos=$REPOS"
           echo "followers=$FOLLOWERS"
           
           NOW=$(date -Iseconds)
           
-          echo '{' > cfg.json
-          echo '  "repos": '$REPOS',' >> cfg.json
-          echo '  "stars": 13,' >> cfg.json
-          echo '  "followers": '$FOLLOWERS',' >> cfg.json
-          echo '  "gists": 0,' >> cfg.json
-          echo '  "totalCommits": 0,' >> cfg.json
-          echo '  "pullRequests": 0,' >> cfg.json
-          echo '  "issues": 3,' >> cfg.json
-          echo '  "lastCommits": [],' >> cfg.json
-          echo '  "updatedAt": "'$NOW'"' >> cfg.json
-          echo '}' >> cfg.json
+          cat > cfg.json << EOF
+{
+  "repos": $REPOS,
+  "stars": 13,
+  "followers": $FOLLOWERS,
+  "gists": $GISTS,
+  "totalCommits": 0,
+  "pullRequests": 0,
+  "issues": 3,
+  "lastCommits": [],
+  "updatedAt": "$NOW"
+}
+EOF
           
           cat cfg.json
       
@@ -44,5 +49,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add cfg.json
-          git commit -m "Update cfg.json" || echo "No changes"
+          git diff --cached --quiet && echo "No changes" || git commit -m "Update cfg.json"
           git push
