@@ -2,8 +2,8 @@ name: Update GitHub Stats
 
 on:
   schedule:
-    - cron: '0 */1 * * *'   # Каждый час
-  workflow_dispatch:          # Ручной запуск
+    - cron: '0 */1 * * *'
+  workflow_dispatch:
 
 jobs:
   update:
@@ -36,7 +36,7 @@ jobs:
             date: .created_at
           })')
           
-          # Создаём JSON
+          # Создаём JSON (временно с фиксированными языками)
           cat > cfg.json << EOF
 {
   "repos": $REPOS,
@@ -56,11 +56,22 @@ jobs:
 }
 EOF
           
+          echo "✅ cfg.json создан:"
+          cat cfg.json
+          
       - name: Commit and push
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
+          
+          # Важно: используем main, а не master
           git pull origin main --rebase || true
           git add cfg.json
-          git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update stats [skip ci]"
+          
+          if git diff --cached --quiet; then
+            echo "Нет изменений для коммита"
+            exit 0
+          fi
+          
+          git commit -m "Auto-update stats [skip ci]"
           git push origin main
