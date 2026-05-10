@@ -65,8 +65,8 @@ jobs:
 
       - name: Commit and push
         run: |
-          git config user.name "rud1x"
-          git config user.email "rud1x@timipav@yadnex.ru"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           
           if git diff --quiet cfg.json; then
             echo "No changes"
