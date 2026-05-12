@@ -29,13 +29,14 @@
 ###
 
 <p align="center">
-  <img src="https://github-readme-stats-fast.vercel.app/api?username=rud1x&theme=bear&show_icons=true&hide_border=true&count_private=true&locale=ru">
+  <img src="https://github-readme-stats-fast.vercel.app/api?username=rud1x&theme=dark&show_icons=true&hide_border=true&count_private=true&locale=ru">
+  <img src="https://github-readme-stats-fast.vercel.app/api/streak?username=rud1x&theme=dark&count_private=true&locale=ru&hide_border=true">
 </p>
 
 ###
 
 <p align="center">
-  <img src="https://github-profile-trophy-tawny.vercel.app/?username=rud1x&theme=radical&no-frame=true&no-bg=true&margin-w=4">
+  <img src="https://github-profile-trophy-tawny.vercel.app/?username=rud1x&theme=oldie&no-frame=true&no-bg=true&margin-w=4">
 </p>
 
 ###
@@ -47,5 +48,3 @@
     <img alt="github-snake" src="https://raw.githubusercontent.com/rud1x/rud1x/refs/heads/output/github-contribution-grid-snake.svg" />
   </picture>
 </p>
-
-![GitStats!!!](https://github.com/rud1x/github-stats-terminal-style/blob/master/github_stats.svg)
