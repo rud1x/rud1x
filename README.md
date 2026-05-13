@@ -3,6 +3,13 @@
 ###
 
 <div align="center">
+  <p>
+    <img src="https://komarev.com/ghpvc/?username=rud1x&style=for-the-badge&label=Visitors&color=grey&labelColor=grey" />
+    <img src="https://img.shields.io/github/followers/rud1x?style=for-the-badge&label=Followers&color=grey" />
+  </p>
+</div>
+
+<div align="center">
   <img src="https://skillicons.dev/icons?i=java" height="40" alt="java logo"  />
   <img width="12" />
   <img src="https://skillicons.dev/icons?i=py" height="40" alt="python logo"  />
