@@ -54,6 +54,12 @@
 ###
 
 <p align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=rud1x&theme=github-dark&hide_border=true&area=true&color=ffffff&bg_color=0d1117&line=ffffff&point=ffffff&area_color=333333">
+</p>
+
+###
+
+<p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rud1x/rud1x/refs/heads/output/github-contribution-grid-snake-dark.svg" />
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/rud1x/rud1x/refs/heads/output/github-contribution-grid-snake.svg" />
