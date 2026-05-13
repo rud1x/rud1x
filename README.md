@@ -37,7 +37,12 @@
 
 <p align="center">
   <img src="https://github-readme-stats-fast.vercel.app/api?username=rud1x&theme=dark&show_icons=true&hide_border=true&count_private=true&locale=ru">
+</p>
+<p align="center">
   <img src="https://github-readme-stats-fast.vercel.app/api/streak?username=rud1x&theme=dark&count_private=true&locale=ru&hide_border=true">
+</p>
+<p align="center">
+  <img src="https://github-readme-stats-fast.vercel.app/api/top-langs/?username=rud1x&theme=dark&hide_border=true&layout=compact&locale=ru">
 </p>
 
 ###
