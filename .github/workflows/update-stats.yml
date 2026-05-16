@@ -28,7 +28,6 @@ jobs:
           STARS=$(curl -s "https://api.github.com/users/rud1x/repos?per_page=100" | jq '[.[].stargazers_count] | add')
 
           # 3. Всего коммитов (во всех публичных репозиториях)
-          # Используем поиск, так как это самый быстрый способ получить общее число
           COMMITS=$(curl -s "https://api.github.com/search/commits?q=author:rud1x" -H "Accept: application/vnd.github.cloak-preview" | jq '.total_count')
 
           # 4. Pull Requests
@@ -65,8 +64,8 @@ jobs:
 
       - name: Commit and push
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "rud1x"
+          git config user.email "127332134+rud1x@users.noreply.github.com"
           
           if git diff --quiet cfg.json; then
             echo "No changes"
