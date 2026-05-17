@@ -60,16 +60,6 @@
 ###
 
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rud1x/rud1x/refs/heads/output/github-contribution-grid-snake-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/rud1x/rud1x/refs/heads/output/github-contribution-grid-snake.svg" />
-    <img alt="github-snake" src="https://raw.githubusercontent.com/rud1x/rud1x/refs/heads/output/github-contribution-grid-snake.svg" />
-  </picture>
-</p>
-
-###
-
-<p align="center">
   <h3>Codewars</h3>
   <a href="https://www.codewars.com/users/rud1x" target="_blank">
     <img src="https://www.codewars.com/users/rud1x/badges/large?theme=dark">
