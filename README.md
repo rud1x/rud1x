@@ -36,7 +36,7 @@
 ###
 
 <p align="center">
-  <img src="https://github-readme-stats-fast.vercel.app/api?username=rud1x&theme=dark&show_icons=true&hide_border=true&count_private=true&locale=ru">
+  <img src="https://github-readme-stats-fast.vercel.app/api?username=rud1x&show_icons=true&title_color=ffffff&text_color=dddddd&icon_color=ffffff&bg_color=000000&hide_border=true&locale=ru">
 </p>
 <p align="center">
   <img src="https://github-readme-stats-fast.vercel.app/api/streak?username=rud1x&theme=dark&count_private=true&locale=ru&hide_border=true">
