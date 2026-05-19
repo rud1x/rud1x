@@ -35,14 +35,11 @@
 
 ###
 
+
 <p align="center">
-  <img src="https://github-readme-stats-fast.vercel.app/api?username=rud1x&show_icons=true&title_color=ffffff&text_color=dddddd&icon_color=ffffff&bg_color=000000&hide_border=true&locale=ru">
-</p>
-<p align="center">
-  <img src="https://github-readme-stats-fast.vercel.app/api/streak?username=rud1x&theme=dark&count_private=true&locale=ru&hide_border=true">
-</p>
-<p align="center">
-  <img src="https://github-readme-stats-fast.vercel.app/api/top-langs/?username=rud1x&theme=dark&hide_border=true&layout=compact&locale=ru">
+  <img src="https://github-readme-stats-fast.vercel.app/api?username=rud1x&show_icons=true&title_color=ffffff&text_color=dddddd&icon_color=ffffff&bg_color=000000&hide_border=true&locale=ru" />
+  <br/><br/>
+  <img src="https://github-readme-stats-fast.vercel.app/api/streak?username=rud1x&theme=dark&count_private=true&locale=ru&hide_border=true&bg_color=000000&title_color=ffffff&text_color=dddddd&icon_color=ffffff" />
 </p>
 
 ###
@@ -51,17 +48,4 @@
   <img src="https://github-profile-trophy-tawny.vercel.app/?username=rud1x&theme=oldie&no-frame=true&no-bg=true&margin-w=4">
 </p>
 
-###
 
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=rud1x&theme=github-dark&hide_border=true&area=true&color=ffffff&bg_color=0d1117&line=ffffff&point=ffffff&area_color=333333">
-</p>
-
-###
-
-<p align="center">
-  <h3>Codewars</h3>
-  <a href="https://www.codewars.com/users/rud1x" target="_blank">
-    <img src="https://www.codewars.com/users/rud1x/badges/large?theme=dark">
-  </a>
-</p>
