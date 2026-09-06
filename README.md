@@ -14,10 +14,10 @@
 **RU:** Меня зовут **Михаил (rudix)** — мне 14 лет, начинающий разработчик из России. Начал программировать в 7 лет. Мой основной язык — Python. В планах изучить Java, C и Rust. Люблю Open Source и почти всё выкладываю на GitHub.
 
 <p align="center">
-  <a href="https://rud1x.github.io">
+  <a href="https://rud1x.ru">
     <img src="https://img.shields.io/badge/PORTFOLIO-333333?style=for-the-badge&logo=vercel&logoColor=white" />
   </a>
-  <a href="https://rud1x.github.io/blog">
+  <a href="https://rud1x.ru/blog">
     <img src="https://img.shields.io/badge/BLOG-333333?style=for-the-badge&logo=hashnode&logoColor=white" />
   </a>
 </p>
