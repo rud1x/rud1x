@@ -16,47 +16,86 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Fetch Detailed GitHub Data
+      - name: Fetch GitHub Data
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # 1. Общие данные профиля (репозитории, фолловеры)
-          USER_DATA=$(curl -s https://api.github.com/users/rud1x)
-          REPOS=$(echo $USER_DATA | jq '.public_repos')
-          FOLLOWERS=$(echo $USER_DATA | jq '.followers')
-          GISTS=$(echo $USER_DATA | jq '.public_gists')
+          # ===== 1. Профиль =====
+          USER_DATA=$(curl -s -H "Authorization: Bearer $GH_TOKEN" https://api.github.com/users/rud1x)
+          REPOS=$(echo "$USER_DATA" | jq '.public_repos // 0')
+          FOLLOWERS=$(echo "$USER_DATA" | jq '.followers // 0')
+          FOLLOWING=$(echo "$USER_DATA" | jq '.following // 0')
+          GISTS=$(echo "$USER_DATA" | jq '.public_gists // 0')
 
-          # 2. Суммарные звезды (по всем репозиториям)
-          STARS=$(curl -s "https://api.github.com/users/rud1x/repos?per_page=100" | jq '[.[].stargazers_count] | add')
+          # ===== 2. Все репозитории (до 100) =====
+          REPOS_DATA=$(curl -s -H "Authorization: Bearer $GH_TOKEN" \
+            "https://api.github.com/users/rud1x/repos?per_page=100&sort=updated")
 
-          # 3. Всего коммитов (во всех публичных репозиториях)
-          COMMITS=$(curl -s "https://api.github.com/search/commits?q=author:rud1x" -H "Accept: application/vnd.github.cloak-preview" | jq '.total_count')
+          # Суммарные звёзды
+          STARS=$(echo "$REPOS_DATA" | jq '[.[].stargazers_count] | add // 0')
+          FORKS_TOTAL=$(echo "$REPOS_DATA" | jq '[.[].forks_count] | add // 0')
 
-          # 4. Pull Requests
-          PRS=$(curl -s "https://api.github.com/search/issues?q=author:rud1x+type:pr" | jq '.total_count')
+          # Разбивка по каждому репо
+          REPO_STARS=$(echo "$REPOS_DATA" | jq '
+            [.[] | {
+              key: .full_name,
+              value: {
+                name: .name,
+                fullName: .full_name,
+                description: .description,
+                url: .html_url,
+                homepage: .homepage,
+                stars: .stargazers_count,
+                forks: .forks_count,
+                watchers: .watchers_count,
+                issues: .open_issues_count,
+                language: .language,
+                topics: .topics,
+                archived: .archived,
+                fork: .fork,
+                createdAt: .created_at,
+                updatedAt: .updated_at,
+                pushedAt: .pushed_at
+              }
+            }] | from_entries')
 
-          # 5. Issues (созданные тобой)
-          ISSUES=$(curl -s "https://api.github.com/search/issues?q=author:rud1x+type:issue" | jq '.total_count')
+          # ===== 3. Коммиты / PR / Issues =====
+          COMMITS=$(curl -s -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github.cloak-preview" \
+            "https://api.github.com/search/commits?q=author:rud1x" | jq '.total_count // 0')
+
+          PRS=$(curl -s -H "Authorization: Bearer $GH_TOKEN" \
+            "https://api.github.com/search/issues?q=author:rud1x+type:pr" | jq '.total_count // 0')
+
+          ISSUES=$(curl -s -H "Authorization: Bearer $GH_TOKEN" \
+            "https://api.github.com/search/issues?q=author:rud1x+type:issue" | jq '.total_count // 0')
 
           NOW=$(date -Iseconds)
 
-          # Собираем всё в cfg.json
+          # ===== 4. Сборка cfg.json =====
           jq -n \
-            --arg repos "$REPOS" \
-            --arg stars "$STARS" \
-            --arg followers "$FOLLOWERS" \
-            --arg gists "$GISTS" \
-            --arg commits "$COMMITS" \
-            --arg prs "$PRS" \
-            --arg issues "$ISSUES" \
+            --argjson repos "$REPOS" \
+            --argjson stars "$STARS" \
+            --argjson followers "$FOLLOWERS" \
+            --argjson following "$FOLLOWING" \
+            --argjson gists "$GISTS" \
+            --argjson forksTotal "$FORKS_TOTAL" \
+            --argjson commits "$COMMITS" \
+            --argjson prs "$PRS" \
+            --argjson issues "$ISSUES" \
             --arg updated "$NOW" \
+            --argjson repoStars "$REPO_STARS" \
             '{
-              repos: ($repos | tonumber),
-              stars: ($stars | tonumber // 0),
-              followers: ($followers | tonumber),
-              gists: ($gists | tonumber),
-              totalCommits: ($commits | tonumber // 0),
-              pullRequests: ($prs | tonumber // 0),
-              issues: ($issues | tonumber // 0),
-              lastCommits: [],
+              repos: $repos,
+              stars: $stars,
+              forks: $forksTotal,
+              followers: $followers,
+              following: $following,
+              gists: $gists,
+              totalCommits: $commits,
+              pullRequests: $prs,
+              issues: $issues,
+              repoStars: $repoStars,
               updatedAt: $updated
             }' > cfg.json
 
@@ -66,11 +105,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          
+
           if git diff --quiet cfg.json; then
             echo "No changes"
           else
             git add cfg.json
-            git commit -m "style: update dashboard stats"
+            git commit -m "chore: update GitHub stats"
             git push origin main
           fi
