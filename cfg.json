@@ -1,11 +1,11 @@
 {
-  "repos": 11,
-  "stars": 99,
+  "repos": 9,
+  "stars": 97,
   "forks": 10,
   "followers": 11,
   "following": 3,
   "gists": 0,
-  "totalCommits": 275,
+  "totalCommits": 276,
   "pullRequests": 7,
   "issues": 5,
   "repoStars": {
@@ -24,8 +24,8 @@
       "archived": false,
       "fork": false,
       "createdAt": "2026-05-06T13:00:28Z",
-      "updatedAt": "2026-10-03T09:35:15Z",
-      "pushedAt": "2026-10-03T09:35:24Z"
+      "updatedAt": "2026-10-03T09:41:48Z",
+      "pushedAt": "2026-10-03T09:41:55Z"
     },
     "rud1x/dotfiles": {
       "name": "dotfiles",
@@ -258,5 +258,52 @@
       "pushedAt": "2026-05-17T13:18:16Z"
     }
   },
-  "updatedAt": "2026-10-03T09:35:49+00:00"
+  "timeline": [
+    {
+      "type": "release",
+      "repo": "rud1x/NeoShell",
+      "title": "NeoShell v2.3",
+      "tag": "v2.3",
+      "body": "## <img src=\"https://api.iconify.design/ph:sparkle-duotone.svg?color=%23ffcc00\" width=\"24\" align=\"top\"> Что нового\r",
+      "url": "https://github.com/rud1x/NeoShell/releases/tag/v2.3",
+      "date": "2026-09-15T14:52:29Z"
+    },
+    {
+      "type": "release",
+      "repo": "rud1x/NeoShell",
+      "title": "NeoShell v2.2 — теперь с Android APK!",
+      "tag": "v2.2",
+      "body": "<h2>\r",
+      "url": "https://github.com/rud1x/NeoShell/releases/tag/v2.2",
+      "date": "2026-09-14T18:23:27Z"
+    },
+    {
+      "type": "release",
+      "repo": "rud1x/NeoShell",
+      "title": "NeoShell v2.1",
+      "tag": "v2.1",
+      "body": "<h2>\r",
+      "url": "https://github.com/rud1x/NeoShell/releases/tag/v2.1",
+      "date": "2026-09-09T17:52:30Z"
+    },
+    {
+      "type": "release",
+      "repo": "rud1x/GitWid",
+      "title": "GitWid BETA",
+      "tag": "BETA",
+      "body": "<p align=\"center\">\r",
+      "url": "https://github.com/rud1x/GitWid/releases/tag/BETA",
+      "date": "2026-05-15T10:41:15Z"
+    },
+    {
+      "type": "release",
+      "repo": "rud1x/NeoShell",
+      "title": "NeoShell v2.0 — Теперь с графическим интерфейсом!",
+      "tag": "v2.0",
+      "body": "## 🎉 Что нового\r",
+      "url": "https://github.com/rud1x/NeoShell/releases/tag/v2.0",
+      "date": "2026-05-05T17:09:00Z"
+    }
+  ],
+  "updatedAt": "2026-10-03T09:42:30+00:00"
 }
