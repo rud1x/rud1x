@@ -9,6 +9,24 @@
   "pullRequests": 7,
   "issues": 5,
   "repoStars": {
+    "rud1x/rud1x": {
+      "name": "rud1x",
+      "fullName": "rud1x/rud1x",
+      "description": null,
+      "url": "https://github.com/rud1x/rud1x",
+      "homepage": null,
+      "stars": 3,
+      "forks": 0,
+      "watchers": 3,
+      "issues": 0,
+      "language": null,
+      "topics": [],
+      "archived": false,
+      "fork": false,
+      "createdAt": "2026-05-06T13:00:28Z",
+      "updatedAt": "2026-10-03T12:58:14Z",
+      "pushedAt": "2026-10-03T15:21:56Z"
+    },
     "rud1x/rud1x.github.io": {
       "name": "rud1x.github.io",
       "fullName": "rud1x/rud1x.github.io",
@@ -26,24 +44,6 @@
       "createdAt": "2026-05-09T14:01:16Z",
       "updatedAt": "2026-10-03T12:51:24Z",
       "pushedAt": "2026-10-03T12:51:21Z"
-    },
-    "rud1x/rud1x": {
-      "name": "rud1x",
-      "fullName": "rud1x/rud1x",
-      "description": null,
-      "url": "https://github.com/rud1x/rud1x",
-      "homepage": null,
-      "stars": 3,
-      "forks": 0,
-      "watchers": 3,
-      "issues": 0,
-      "language": null,
-      "topics": [],
-      "archived": false,
-      "fork": false,
-      "createdAt": "2026-05-06T13:00:28Z",
-      "updatedAt": "2026-10-03T11:46:42Z",
-      "pushedAt": "2026-10-03T11:46:39Z"
     },
     "rud1x/dotfiles": {
       "name": "dotfiles",
@@ -315,5 +315,5 @@
       "draft": false
     }
   ],
-  "updatedAt": "2026-10-03T12:58:10+00:00"
+  "updatedAt": "2026-10-03T16:59:43+00:00"
 }
