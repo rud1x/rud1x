@@ -1,0 +1,61 @@
+{
+  "updatedAt": "2026-10-03T11:46:38+00:00",
+  "total": 5,
+  "releases": [
+    {
+      "type": "release",
+      "repo": "rud1x/NeoShell",
+      "title": "NeoShell v2.3",
+      "tag": "v2.3",
+      "body": "Что нового - **Медиа-плеер** — Play/Pause, Next, Prev, Stop + обложка альбома - **Громкость** — горизонтальный ползунок 0–100% - **Мониторинг ПК** — CPU, RAM, Disk, температура - **Мои команды** — соз",
+      "url": "https://github.com/rud1x/NeoShell/releases/tag/v2.3",
+      "date": "2026-09-15T14:52:29Z",
+      "prerelease": false,
+      "draft": false
+    },
+    {
+      "type": "release",
+      "repo": "rud1x/NeoShell",
+      "title": "NeoShell v2.2 — теперь с Android APK!",
+      "tag": "v2.2",
+      "body": "NeoShell v2.2 — теперь с Android APK! NeoShell выходит за пределы браузера — теперь полноценный Android-клиент с QR-сканером, push-уведомлениями и нативным интерфейсом. Управляй ПК как с пульта. Главн",
+      "url": "https://github.com/rud1x/NeoShell/releases/tag/v2.2",
+      "date": "2026-09-14T18:23:27Z",
+      "prerelease": false,
+      "draft": false
+    },
+    {
+      "type": "release",
+      "repo": "rud1x/NeoShell",
+      "title": "NeoShell v2.1",
+      "tag": "v2.1",
+      "body": "Что нового Новый мобильный интерфейс — Чистый стеклянный дизайн, оптимизированный для смартфонов Подключение по QR — Отсканируй QR-код с экрана ПК и подключайся мгновенно Умный статус — Отображение им",
+      "url": "https://github.com/rud1x/NeoShell/releases/tag/v2.1",
+      "date": "2026-09-09T17:52:30Z",
+      "prerelease": false,
+      "draft": false
+    },
+    {
+      "type": "release",
+      "repo": "rud1x/GitWid",
+      "title": "GitWid BETA",
+      "tag": "BETA",
+      "body": "GitWid Что входит | Компонент | Описание | |---|---| | **GitWid Hub** | Настройки аккаунта — ввод username и Personal Access Token | | **GitHub Stats** | Репозитории, followers, following в реальном в",
+      "url": "https://github.com/rud1x/GitWid/releases/tag/BETA",
+      "date": "2026-05-15T10:41:15Z",
+      "prerelease": false,
+      "draft": false
+    },
+    {
+      "type": "release",
+      "repo": "rud1x/NeoShell",
+      "title": "NeoShell v2.0 — Теперь с графическим интерфейсом!",
+      "tag": "v2.0",
+      "body": "🎉 Что нового **Больше никакого WSL и консоли!** NeoShell теперь полноценное Windows-приложение с красивым интерфейсом. ⚡ Просто скачай и запусти: 1. Скачай `NeoShell_v2.0.zip` 2. Запусти `NeoShell.exe",
+      "url": "https://github.com/rud1x/NeoShell/releases/tag/v2.0",
+      "date": "2026-05-05T17:09:00Z",
+      "prerelease": false,
+      "draft": false
+    }
+  ]
+}
