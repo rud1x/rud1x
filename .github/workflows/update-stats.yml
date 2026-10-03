@@ -103,7 +103,7 @@ jobs:
               '$acc + $new')
           done
 
-          TIMELINE_SORTED=$(echo "$TIMELINE_ITEMS" | jq 'sort_by(.date) | reverse | .[:15]')
+          TIMELINE_SORTED=$(echo "$TIMELINE_ITEMS" | jq 'sort_by(.date) | reverse | .[:10]')
 
           NOW=$(date -Iseconds)
 
