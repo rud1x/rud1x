@@ -5,10 +5,28 @@
   "followers": 11,
   "following": 3,
   "gists": 0,
-  "totalCommits": 288,
+  "totalCommits": 289,
   "pullRequests": 7,
   "issues": 5,
   "repoStars": {
+    "rud1x/rud1x": {
+      "name": "rud1x",
+      "fullName": "rud1x/rud1x",
+      "description": null,
+      "url": "https://github.com/rud1x/rud1x",
+      "homepage": null,
+      "stars": 3,
+      "forks": 0,
+      "watchers": 3,
+      "issues": 0,
+      "language": null,
+      "topics": [],
+      "archived": false,
+      "fork": false,
+      "createdAt": "2026-05-06T13:00:28Z",
+      "updatedAt": "2026-10-05T18:15:07Z",
+      "pushedAt": "2026-10-05T18:15:03Z"
+    },
     "rud1x/HuroBot_tg": {
       "name": "HuroBot_tg",
       "fullName": "rud1x/HuroBot_tg",
@@ -36,24 +54,6 @@
       "createdAt": "2025-05-16T17:29:53Z",
       "updatedAt": "2026-10-05T18:13:24Z",
       "pushedAt": "2026-10-05T18:13:20Z"
-    },
-    "rud1x/rud1x": {
-      "name": "rud1x",
-      "fullName": "rud1x/rud1x",
-      "description": null,
-      "url": "https://github.com/rud1x/rud1x",
-      "homepage": null,
-      "stars": 3,
-      "forks": 0,
-      "watchers": 3,
-      "issues": 0,
-      "language": null,
-      "topics": [],
-      "archived": false,
-      "fork": false,
-      "createdAt": "2026-05-06T13:00:28Z",
-      "updatedAt": "2026-10-05T17:43:32Z",
-      "pushedAt": "2026-10-05T17:43:28Z"
     },
     "rud1x/rud1x.github.io": {
       "name": "rud1x.github.io",
@@ -326,5 +326,5 @@
       "draft": false
     }
   ],
-  "updatedAt": "2026-10-05T18:15:02+00:00"
+  "updatedAt": "2026-10-05T23:35:50+00:00"
 }
