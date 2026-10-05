@@ -1,14 +1,42 @@
 {
   "repos": 9,
-  "stars": 97,
+  "stars": 98,
   "forks": 10,
   "followers": 11,
   "following": 3,
   "gists": 0,
-  "totalCommits": 284,
+  "totalCommits": 285,
   "pullRequests": 7,
   "issues": 5,
   "repoStars": {
+    "rud1x/HuroBot_tg": {
+      "name": "HuroBot_tg",
+      "fullName": "rud1x/HuroBot_tg",
+      "description": "HURObot — многофункциональный Telegram-userbot для автоматизации, OSINT и управления.",
+      "url": "https://github.com/rud1x/HuroBot_tg",
+      "homepage": "https://t.me/hurodev",
+      "stars": 16,
+      "forks": 1,
+      "watchers": 16,
+      "issues": 1,
+      "language": "Python",
+      "topics": [
+        "osint",
+        "python",
+        "spamming-tool",
+        "telegrambot",
+        "telethon",
+        "telethon-userbot",
+        "userbot-for-telegram",
+        "userbot-telegram",
+        "whois"
+      ],
+      "archived": false,
+      "fork": false,
+      "createdAt": "2025-05-16T17:29:53Z",
+      "updatedAt": "2026-10-05T15:03:23Z",
+      "pushedAt": "2026-10-05T15:03:18Z"
+    },
     "rud1x/rud1x": {
       "name": "rud1x",
       "fullName": "rud1x/rud1x",
@@ -24,8 +52,8 @@
       "archived": false,
       "fork": false,
       "createdAt": "2026-05-06T13:00:28Z",
-      "updatedAt": "2026-10-05T01:29:31Z",
-      "pushedAt": "2026-10-05T02:49:54Z"
+      "updatedAt": "2026-10-05T08:07:14Z",
+      "pushedAt": "2026-10-05T08:07:10Z"
     },
     "rud1x/rud1x.github.io": {
       "name": "rud1x.github.io",
@@ -95,34 +123,6 @@
       "createdAt": "2026-05-02T16:40:45Z",
       "updatedAt": "2026-09-30T09:10:48Z",
       "pushedAt": "2026-09-15T14:52:29Z"
-    },
-    "rud1x/HuroBot_tg": {
-      "name": "HuroBot_tg",
-      "fullName": "rud1x/HuroBot_tg",
-      "description": "HURObot — многофункциональный Telegram-userbot для автоматизации, OSINT и управления.",
-      "url": "https://github.com/rud1x/HuroBot_tg",
-      "homepage": "https://t.me/hurodev",
-      "stars": 15,
-      "forks": 1,
-      "watchers": 15,
-      "issues": 1,
-      "language": "Python",
-      "topics": [
-        "osint",
-        "python",
-        "spamming-tool",
-        "telegrambot",
-        "telethon",
-        "telethon-userbot",
-        "userbot-for-telegram",
-        "userbot-telegram",
-        "whois"
-      ],
-      "archived": false,
-      "fork": false,
-      "createdAt": "2025-05-16T17:29:53Z",
-      "updatedAt": "2026-08-27T06:23:05Z",
-      "pushedAt": "2026-06-03T12:54:57Z"
     },
     "rud1x/me.rud1x.ru": {
       "name": "me.rud1x.ru",
@@ -315,5 +315,5 @@
       "draft": false
     }
   ],
-  "updatedAt": "2026-10-05T08:07:09+00:00"
+  "updatedAt": "2026-10-05T17:43:27+00:00"
 }
