@@ -1,7 +1,18 @@
 {
-  "updatedAt": "2026-10-05T17:43:27+00:00",
-  "total": 5,
+  "updatedAt": "2026-10-05T18:15:02+00:00",
+  "total": 6,
   "releases": [
+    {
+      "type": "release",
+      "repo": "rud1x/HuroBot_tg",
+      "title": "HURObot v1.2.0 — большое обновление**",
+      "tag": "1.2.0",
+      "body": "Что нового? **веб-панель** — управление через браузер `127.0.0.1:8080` **мультиаккаунт** — сколько угодно сессий сразу **муты** — по времени, слову, теневые **статистика** — `.stat` `.top` `.digest` *",
+      "url": "https://github.com/rud1x/HuroBot_tg/releases/tag/1.2.0",
+      "date": "2026-10-05T18:12:33Z",
+      "prerelease": false,
+      "draft": false
+    },
     {
       "type": "release",
       "repo": "rud1x/NeoShell",
