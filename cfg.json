@@ -5,10 +5,38 @@
   "followers": 11,
   "following": 3,
   "gists": 0,
-  "totalCommits": 290,
+  "totalCommits": 292,
   "pullRequests": 7,
   "issues": 5,
   "repoStars": {
+    "rud1x/HuroBot_tg": {
+      "name": "HuroBot_tg",
+      "fullName": "rud1x/HuroBot_tg",
+      "description": "HURObot — многофункциональный Telegram-userbot для автоматизации, OSINT и управления.",
+      "url": "https://github.com/rud1x/HuroBot_tg",
+      "homepage": "https://t.me/hurodev",
+      "stars": 16,
+      "forks": 1,
+      "watchers": 16,
+      "issues": 1,
+      "language": "Python",
+      "topics": [
+        "osint",
+        "python",
+        "spamming-tool",
+        "telegrambot",
+        "telethon",
+        "telethon-userbot",
+        "userbot-for-telegram",
+        "userbot-telegram",
+        "whois"
+      ],
+      "archived": false,
+      "fork": false,
+      "createdAt": "2025-05-16T17:29:53Z",
+      "updatedAt": "2026-10-08T11:57:13Z",
+      "pushedAt": "2026-10-08T12:00:56Z"
+    },
     "rud1x/rud1x": {
       "name": "rud1x",
       "fullName": "rud1x/rud1x",
@@ -24,8 +52,8 @@
       "archived": false,
       "fork": false,
       "createdAt": "2026-05-06T13:00:28Z",
-      "updatedAt": "2026-10-08T01:30:07Z",
-      "pushedAt": "2026-10-08T03:23:15Z"
+      "updatedAt": "2026-10-08T08:18:05Z",
+      "pushedAt": "2026-10-08T08:18:01Z"
     },
     "rud1x/NeoShell": {
       "name": "NeoShell",
@@ -59,34 +87,6 @@
       "createdAt": "2026-05-02T16:40:45Z",
       "updatedAt": "2026-10-07T12:52:12Z",
       "pushedAt": "2026-09-15T14:52:29Z"
-    },
-    "rud1x/HuroBot_tg": {
-      "name": "HuroBot_tg",
-      "fullName": "rud1x/HuroBot_tg",
-      "description": "HURObot — многофункциональный Telegram-userbot для автоматизации, OSINT и управления.",
-      "url": "https://github.com/rud1x/HuroBot_tg",
-      "homepage": "https://t.me/hurodev",
-      "stars": 16,
-      "forks": 1,
-      "watchers": 16,
-      "issues": 1,
-      "language": "Python",
-      "topics": [
-        "osint",
-        "python",
-        "spamming-tool",
-        "telegrambot",
-        "telethon",
-        "telethon-userbot",
-        "userbot-for-telegram",
-        "userbot-telegram",
-        "whois"
-      ],
-      "archived": false,
-      "fork": false,
-      "createdAt": "2025-05-16T17:29:53Z",
-      "updatedAt": "2026-10-05T18:13:24Z",
-      "pushedAt": "2026-10-05T18:13:20Z"
     },
     "rud1x/rud1x.github.io": {
       "name": "rud1x.github.io",
@@ -262,7 +262,18 @@
     {
       "type": "release",
       "repo": "rud1x/HuroBot_tg",
-      "title": "HURObot v1.2.0 — большое обновление**",
+      "title": "HURObot v1.3.0",
+      "tag": "1.3.0",
+      "body": "Автообновление Исправлено. Теперь бот при запуске проверяет новый релиз на GitHub и подтягивает **все файлы проекта** — не только `hurobot.py`, но и `config.py`, `web.py`, `commands/*`, `templates/ind",
+      "url": "https://github.com/rud1x/HuroBot_tg/releases/tag/1.3.0",
+      "date": "2026-10-08T12:00:57Z",
+      "prerelease": false,
+      "draft": false
+    },
+    {
+      "type": "release",
+      "repo": "rud1x/HuroBot_tg",
+      "title": "HURObot v1.2.0 — большое обновление",
       "tag": "1.2.0",
       "body": "Что нового? **веб-панель** — управление через браузер `127.0.0.1:8080` **мультиаккаунт** — сколько угодно сессий сразу **муты** — по времени, слову, теневые **статистика** — `.stat` `.top` `.digest` *",
       "url": "https://github.com/rud1x/HuroBot_tg/releases/tag/1.2.0",
@@ -326,5 +337,5 @@
       "draft": false
     }
   ],
-  "updatedAt": "2026-10-08T08:18:00+00:00"
+  "updatedAt": "2026-10-08T16:02:38+00:00"
 }

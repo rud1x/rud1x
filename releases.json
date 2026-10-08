@@ -1,11 +1,22 @@
 {
-  "updatedAt": "2026-10-08T08:18:00+00:00",
-  "total": 6,
+  "updatedAt": "2026-10-08T16:02:38+00:00",
+  "total": 7,
   "releases": [
     {
       "type": "release",
       "repo": "rud1x/HuroBot_tg",
-      "title": "HURObot v1.2.0 — большое обновление**",
+      "title": "HURObot v1.3.0",
+      "tag": "1.3.0",
+      "body": "Автообновление Исправлено. Теперь бот при запуске проверяет новый релиз на GitHub и подтягивает **все файлы проекта** — не только `hurobot.py`, но и `config.py`, `web.py`, `commands/*`, `templates/ind",
+      "url": "https://github.com/rud1x/HuroBot_tg/releases/tag/1.3.0",
+      "date": "2026-10-08T12:00:57Z",
+      "prerelease": false,
+      "draft": false
+    },
+    {
+      "type": "release",
+      "repo": "rud1x/HuroBot_tg",
+      "title": "HURObot v1.2.0 — большое обновление",
       "tag": "1.2.0",
       "body": "Что нового? **веб-панель** — управление через браузер `127.0.0.1:8080` **мультиаккаунт** — сколько угодно сессий сразу **муты** — по времени, слову, теневые **статистика** — `.stat` `.top` `.digest` *",
       "url": "https://github.com/rud1x/HuroBot_tg/releases/tag/1.2.0",
