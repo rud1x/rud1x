@@ -9,6 +9,24 @@
   "pullRequests": 7,
   "issues": 5,
   "repoStars": {
+    "rud1x/rud1x": {
+      "name": "rud1x",
+      "fullName": "rud1x/rud1x",
+      "description": null,
+      "url": "https://github.com/rud1x/rud1x",
+      "homepage": null,
+      "stars": 3,
+      "forks": 0,
+      "watchers": 3,
+      "issues": 0,
+      "language": null,
+      "topics": [],
+      "archived": false,
+      "fork": false,
+      "createdAt": "2026-05-06T13:00:28Z",
+      "updatedAt": "2026-10-08T16:02:43Z",
+      "pushedAt": "2026-10-08T18:06:16Z"
+    },
     "rud1x/HuroBot_tg": {
       "name": "HuroBot_tg",
       "fullName": "rud1x/HuroBot_tg",
@@ -36,24 +54,6 @@
       "createdAt": "2025-05-16T17:29:53Z",
       "updatedAt": "2026-10-08T11:57:13Z",
       "pushedAt": "2026-10-08T12:00:56Z"
-    },
-    "rud1x/rud1x": {
-      "name": "rud1x",
-      "fullName": "rud1x/rud1x",
-      "description": null,
-      "url": "https://github.com/rud1x/rud1x",
-      "homepage": null,
-      "stars": 3,
-      "forks": 0,
-      "watchers": 3,
-      "issues": 0,
-      "language": null,
-      "topics": [],
-      "archived": false,
-      "fork": false,
-      "createdAt": "2026-05-06T13:00:28Z",
-      "updatedAt": "2026-10-08T08:18:05Z",
-      "pushedAt": "2026-10-08T08:18:01Z"
     },
     "rud1x/NeoShell": {
       "name": "NeoShell",
@@ -337,5 +337,5 @@
       "draft": false
     }
   ],
-  "updatedAt": "2026-10-08T16:02:38+00:00"
+  "updatedAt": "2026-10-08T21:43:49+00:00"
 }
