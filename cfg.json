@@ -1,6 +1,6 @@
 {
   "repos": 9,
-  "stars": 100,
+  "stars": 101,
   "forks": 10,
   "followers": 11,
   "following": 3,
@@ -9,6 +9,39 @@
   "pullRequests": 7,
   "issues": 5,
   "repoStars": {
+    "rud1x/NeoShell": {
+      "name": "NeoShell",
+      "fullName": "rud1x/NeoShell",
+      "description": "Управляй своим ПК с телефона через Wi-Fi.",
+      "url": "https://github.com/rud1x/NeoShell",
+      "homepage": "",
+      "stars": 57,
+      "forks": 5,
+      "watchers": 57,
+      "issues": 0,
+      "language": "JavaScript",
+      "topics": [
+        "desktop-app",
+        "easy-to-us",
+        "easydownload",
+        "local-network",
+        "phone-as-remote",
+        "python",
+        "qr-code",
+        "remote-control",
+        "self-hosted",
+        "web-app",
+        "wifi",
+        "windows",
+        "windows-11",
+        "windows-tools"
+      ],
+      "archived": false,
+      "fork": false,
+      "createdAt": "2026-05-02T16:40:45Z",
+      "updatedAt": "2026-10-13T20:05:21Z",
+      "pushedAt": "2026-09-15T14:52:29Z"
+    },
     "rud1x/rud1x": {
       "name": "rud1x",
       "fullName": "rud1x/rud1x",
@@ -24,8 +57,8 @@
       "archived": false,
       "fork": false,
       "createdAt": "2026-05-06T13:00:28Z",
-      "updatedAt": "2026-10-13T09:59:18Z",
-      "pushedAt": "2026-10-13T09:59:14Z"
+      "updatedAt": "2026-10-13T17:26:55Z",
+      "pushedAt": "2026-10-13T18:36:54Z"
     },
     "rud1x/HuroBot_tg": {
       "name": "HuroBot_tg",
@@ -54,39 +87,6 @@
       "createdAt": "2025-05-16T17:29:53Z",
       "updatedAt": "2026-10-10T19:42:59Z",
       "pushedAt": "2026-10-08T12:00:56Z"
-    },
-    "rud1x/NeoShell": {
-      "name": "NeoShell",
-      "fullName": "rud1x/NeoShell",
-      "description": "Управляй своим ПК с телефона через Wi-Fi.",
-      "url": "https://github.com/rud1x/NeoShell",
-      "homepage": "",
-      "stars": 56,
-      "forks": 5,
-      "watchers": 56,
-      "issues": 0,
-      "language": "JavaScript",
-      "topics": [
-        "desktop-app",
-        "easy-to-us",
-        "easydownload",
-        "local-network",
-        "phone-as-remote",
-        "python",
-        "qr-code",
-        "remote-control",
-        "self-hosted",
-        "web-app",
-        "wifi",
-        "windows",
-        "windows-11",
-        "windows-tools"
-      ],
-      "archived": false,
-      "fork": false,
-      "createdAt": "2026-05-02T16:40:45Z",
-      "updatedAt": "2026-10-07T12:52:12Z",
-      "pushedAt": "2026-09-15T14:52:29Z"
     },
     "rud1x/rud1x.github.io": {
       "name": "rud1x.github.io",
@@ -337,5 +337,5 @@
       "draft": false
     }
   ],
-  "updatedAt": "2026-10-13T17:26:50+00:00"
+  "updatedAt": "2026-10-13T22:11:32+00:00"
 }
