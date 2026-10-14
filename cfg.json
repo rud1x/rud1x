@@ -1,6 +1,6 @@
 {
   "repos": 9,
-  "stars": 101,
+  "stars": 100,
   "forks": 10,
   "followers": 11,
   "following": 3,
@@ -9,33 +9,15 @@
   "pullRequests": 7,
   "issues": 5,
   "repoStars": {
-    "rud1x/rud1x": {
-      "name": "rud1x",
-      "fullName": "rud1x/rud1x",
-      "description": null,
-      "url": "https://github.com/rud1x/rud1x",
-      "homepage": null,
-      "stars": 3,
-      "forks": 0,
-      "watchers": 3,
-      "issues": 0,
-      "language": null,
-      "topics": [],
-      "archived": false,
-      "fork": false,
-      "createdAt": "2026-05-06T13:00:28Z",
-      "updatedAt": "2026-10-13T22:11:36Z",
-      "pushedAt": "2026-10-13T22:11:33Z"
-    },
     "rud1x/NeoShell": {
       "name": "NeoShell",
       "fullName": "rud1x/NeoShell",
       "description": "Управляй своим ПК с телефона через Wi-Fi.",
       "url": "https://github.com/rud1x/NeoShell",
       "homepage": "",
-      "stars": 57,
+      "stars": 56,
       "forks": 5,
-      "watchers": 57,
+      "watchers": 56,
       "issues": 0,
       "language": "JavaScript",
       "topics": [
@@ -57,8 +39,26 @@
       "archived": false,
       "fork": false,
       "createdAt": "2026-05-02T16:40:45Z",
-      "updatedAt": "2026-10-13T20:05:21Z",
+      "updatedAt": "2026-10-14T05:36:39Z",
       "pushedAt": "2026-09-15T14:52:29Z"
+    },
+    "rud1x/rud1x": {
+      "name": "rud1x",
+      "fullName": "rud1x/rud1x",
+      "description": null,
+      "url": "https://github.com/rud1x/rud1x",
+      "homepage": null,
+      "stars": 3,
+      "forks": 0,
+      "watchers": 3,
+      "issues": 0,
+      "language": null,
+      "topics": [],
+      "archived": false,
+      "fork": false,
+      "createdAt": "2026-05-06T13:00:28Z",
+      "updatedAt": "2026-10-14T01:32:08Z",
+      "pushedAt": "2026-10-14T02:31:01Z"
     },
     "rud1x/HuroBot_tg": {
       "name": "HuroBot_tg",
@@ -337,5 +337,5 @@
       "draft": false
     }
   ],
-  "updatedAt": "2026-10-14T01:32:04+00:00"
+  "updatedAt": "2026-10-14T06:59:32+00:00"
 }
