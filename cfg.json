@@ -9,6 +9,24 @@
   "pullRequests": 7,
   "issues": 5,
   "repoStars": {
+    "rud1x/rud1x": {
+      "name": "rud1x",
+      "fullName": "rud1x/rud1x",
+      "description": null,
+      "url": "https://github.com/rud1x/rud1x",
+      "homepage": null,
+      "stars": 3,
+      "forks": 0,
+      "watchers": 3,
+      "issues": 0,
+      "language": null,
+      "topics": [],
+      "archived": false,
+      "fork": false,
+      "createdAt": "2026-05-06T13:00:28Z",
+      "updatedAt": "2026-10-18T12:23:28Z",
+      "pushedAt": "2026-10-18T15:01:36Z"
+    },
     "rud1x/dotfiles": {
       "name": "dotfiles",
       "fullName": "rud1x/dotfiles",
@@ -26,24 +44,6 @@
       "createdAt": "2026-06-04T10:22:48Z",
       "updatedAt": "2026-10-18T09:15:54Z",
       "pushedAt": "2026-06-09T05:57:50Z"
-    },
-    "rud1x/rud1x": {
-      "name": "rud1x",
-      "fullName": "rud1x/rud1x",
-      "description": null,
-      "url": "https://github.com/rud1x/rud1x",
-      "homepage": null,
-      "stars": 3,
-      "forks": 0,
-      "watchers": 3,
-      "issues": 0,
-      "language": null,
-      "topics": [],
-      "archived": false,
-      "fork": false,
-      "createdAt": "2026-05-06T13:00:28Z",
-      "updatedAt": "2026-10-18T07:41:24Z",
-      "pushedAt": "2026-10-18T07:41:21Z"
     },
     "rud1x/HuroBot_tg": {
       "name": "HuroBot_tg",
@@ -348,5 +348,5 @@
       "draft": false
     }
   ],
-  "updatedAt": "2026-10-18T12:23:23+00:00"
+  "updatedAt": "2026-10-18T16:18:59+00:00"
 }
