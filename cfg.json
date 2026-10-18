@@ -1,6 +1,6 @@
 {
   "repos": 9,
-  "stars": 100,
+  "stars": 101,
   "forks": 10,
   "followers": 11,
   "following": 3,
@@ -9,6 +9,24 @@
   "pullRequests": 7,
   "issues": 5,
   "repoStars": {
+    "rud1x/dotfiles": {
+      "name": "dotfiles",
+      "fullName": "rud1x/dotfiles",
+      "description": "my dotfiles",
+      "url": "https://github.com/rud1x/dotfiles",
+      "homepage": "",
+      "stars": 12,
+      "forks": 0,
+      "watchers": 12,
+      "issues": 0,
+      "language": "Shell",
+      "topics": [],
+      "archived": false,
+      "fork": false,
+      "createdAt": "2026-06-04T10:22:48Z",
+      "updatedAt": "2026-10-18T09:15:54Z",
+      "pushedAt": "2026-06-09T05:57:50Z"
+    },
     "rud1x/rud1x": {
       "name": "rud1x",
       "fullName": "rud1x/rud1x",
@@ -24,8 +42,8 @@
       "archived": false,
       "fork": false,
       "createdAt": "2026-05-06T13:00:28Z",
-      "updatedAt": "2026-10-18T02:40:10Z",
-      "pushedAt": "2026-10-18T02:40:07Z"
+      "updatedAt": "2026-10-18T07:41:24Z",
+      "pushedAt": "2026-10-18T07:41:21Z"
     },
     "rud1x/HuroBot_tg": {
       "name": "HuroBot_tg",
@@ -105,24 +123,6 @@
       "createdAt": "2026-05-09T14:01:16Z",
       "updatedAt": "2026-10-03T12:51:24Z",
       "pushedAt": "2026-10-03T12:51:21Z"
-    },
-    "rud1x/dotfiles": {
-      "name": "dotfiles",
-      "fullName": "rud1x/dotfiles",
-      "description": "my dotfiles",
-      "url": "https://github.com/rud1x/dotfiles",
-      "homepage": "",
-      "stars": 11,
-      "forks": 0,
-      "watchers": 11,
-      "issues": 0,
-      "language": "Shell",
-      "topics": [],
-      "archived": false,
-      "fork": false,
-      "createdAt": "2026-06-04T10:22:48Z",
-      "updatedAt": "2026-10-01T05:46:47Z",
-      "pushedAt": "2026-06-09T05:57:50Z"
     },
     "rud1x/me.rud1x.ru": {
       "name": "me.rud1x.ru",
@@ -348,5 +348,5 @@
       "draft": false
     }
   ],
-  "updatedAt": "2026-10-18T07:41:20+00:00"
+  "updatedAt": "2026-10-18T12:23:23+00:00"
 }
