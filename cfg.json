@@ -1,14 +1,50 @@
 {
-  "repos": 9,
+  "repos": 10,
   "stars": 101,
   "forks": 10,
   "followers": 11,
   "following": 3,
   "gists": 0,
-  "totalCommits": 295,
+  "totalCommits": 297,
   "pullRequests": 7,
-  "issues": 0,
+  "issues": 5,
   "repoStars": {
+    "rud1x/rud1x.github.io": {
+      "name": "rud1x.github.io",
+      "fullName": "rud1x/rud1x.github.io",
+      "description": null,
+      "url": "https://github.com/rud1x/rud1x.github.io",
+      "homepage": null,
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "issues": 0,
+      "language": "HTML",
+      "topics": [],
+      "archived": false,
+      "fork": false,
+      "createdAt": "2026-10-22T18:25:11Z",
+      "updatedAt": "2026-10-22T18:25:36Z",
+      "pushedAt": "2026-10-22T18:25:32Z"
+    },
+    "rud1x/rud1x.ru": {
+      "name": "rud1x.ru",
+      "fullName": "rud1x/rud1x.ru",
+      "description": "i",
+      "url": "https://github.com/rud1x/rud1x.ru",
+      "homepage": "https://rud1x.ru",
+      "stars": 1,
+      "forks": 0,
+      "watchers": 1,
+      "issues": 2,
+      "language": "HTML",
+      "topics": [],
+      "archived": false,
+      "fork": false,
+      "createdAt": "2026-05-09T14:01:16Z",
+      "updatedAt": "2026-10-22T18:24:44Z",
+      "pushedAt": "2026-10-22T18:23:12Z"
+    },
     "rud1x/rud1x": {
       "name": "rud1x",
       "fullName": "rud1x/rud1x",
@@ -24,8 +60,8 @@
       "archived": false,
       "fork": false,
       "createdAt": "2026-05-06T13:00:28Z",
-      "updatedAt": "2026-10-22T10:59:06Z",
-      "pushedAt": "2026-10-22T10:59:03Z"
+      "updatedAt": "2026-10-22T15:49:21Z",
+      "pushedAt": "2026-10-22T16:12:57Z"
     },
     "rud1x/dotfiles": {
       "name": "dotfiles",
@@ -105,24 +141,6 @@
       "createdAt": "2026-05-02T16:40:45Z",
       "updatedAt": "2026-10-14T05:36:39Z",
       "pushedAt": "2026-09-15T14:52:29Z"
-    },
-    "rud1x/rud1x.github.io": {
-      "name": "rud1x.github.io",
-      "fullName": "rud1x/rud1x.github.io",
-      "description": "i",
-      "url": "https://github.com/rud1x/rud1x.github.io",
-      "homepage": "https://rud1x.ru",
-      "stars": 1,
-      "forks": 0,
-      "watchers": 1,
-      "issues": 2,
-      "language": "CSS",
-      "topics": [],
-      "archived": false,
-      "fork": false,
-      "createdAt": "2026-05-09T14:01:16Z",
-      "updatedAt": "2026-10-03T12:51:24Z",
-      "pushedAt": "2026-10-03T12:51:21Z"
     },
     "rud1x/me.rud1x.ru": {
       "name": "me.rud1x.ru",
@@ -348,5 +366,5 @@
       "draft": false
     }
   ],
-  "updatedAt": "2026-10-22T15:49:15+00:00"
+  "updatedAt": "2026-10-22T19:40:52+00:00"
 }
