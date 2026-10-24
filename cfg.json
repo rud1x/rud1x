@@ -9,6 +9,24 @@
   "pullRequests": 7,
   "issues": 5,
   "repoStars": {
+    "rud1x/rud1x": {
+      "name": "rud1x",
+      "fullName": "rud1x/rud1x",
+      "description": null,
+      "url": "https://github.com/rud1x/rud1x",
+      "homepage": null,
+      "stars": 3,
+      "forks": 0,
+      "watchers": 3,
+      "issues": 0,
+      "language": null,
+      "topics": [],
+      "archived": false,
+      "fork": false,
+      "createdAt": "2026-05-06T13:00:28Z",
+      "updatedAt": "2026-10-24T12:23:48Z",
+      "pushedAt": "2026-10-24T14:59:51Z"
+    },
     "rud1x/NeoShellWeb": {
       "name": "NeoShellWeb",
       "fullName": "rud1x/NeoShellWeb",
@@ -26,24 +44,6 @@
       "createdAt": "2026-10-24T07:43:10Z",
       "updatedAt": "2026-10-24T10:56:03Z",
       "pushedAt": "2026-10-24T10:55:59Z"
-    },
-    "rud1x/rud1x": {
-      "name": "rud1x",
-      "fullName": "rud1x/rud1x",
-      "description": null,
-      "url": "https://github.com/rud1x/rud1x",
-      "homepage": null,
-      "stars": 3,
-      "forks": 0,
-      "watchers": 3,
-      "issues": 0,
-      "language": null,
-      "topics": [],
-      "archived": false,
-      "fork": false,
-      "createdAt": "2026-05-06T13:00:28Z",
-      "updatedAt": "2026-10-24T07:49:20Z",
-      "pushedAt": "2026-10-24T07:49:16Z"
     },
     "rud1x/NeoShell": {
       "name": "NeoShell",
@@ -395,5 +395,5 @@
       "draft": false
     }
   ],
-  "updatedAt": "2026-10-24T12:23:44+00:00"
+  "updatedAt": "2026-10-24T16:24:03+00:00"
 }
