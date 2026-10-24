@@ -1,14 +1,32 @@
 {
   "repos": 11,
-  "stars": 101,
+  "stars": 102,
   "forks": 10,
   "followers": 11,
   "following": 3,
   "gists": 0,
-  "totalCommits": 301,
+  "totalCommits": 302,
   "pullRequests": 7,
   "issues": 5,
   "repoStars": {
+    "rud1x/me.rud1x.ru": {
+      "name": "me.rud1x.ru",
+      "fullName": "rud1x/me.rud1x.ru",
+      "description": null,
+      "url": "https://github.com/rud1x/me.rud1x.ru",
+      "homepage": "https://merud1xru.vercel.app",
+      "stars": 1,
+      "forks": 0,
+      "watchers": 1,
+      "issues": 0,
+      "language": "CSS",
+      "topics": [],
+      "archived": false,
+      "fork": false,
+      "createdAt": "2026-07-29T17:14:39Z",
+      "updatedAt": "2026-10-24T17:28:31Z",
+      "pushedAt": "2026-07-29T17:37:44Z"
+    },
     "rud1x/rud1x": {
       "name": "rud1x",
       "fullName": "rud1x/rud1x",
@@ -24,8 +42,8 @@
       "archived": false,
       "fork": false,
       "createdAt": "2026-05-06T13:00:28Z",
-      "updatedAt": "2026-10-24T12:23:48Z",
-      "pushedAt": "2026-10-24T14:59:51Z"
+      "updatedAt": "2026-10-24T16:24:08Z",
+      "pushedAt": "2026-10-24T16:24:04Z"
     },
     "rud1x/NeoShellWeb": {
       "name": "NeoShellWeb",
@@ -159,24 +177,6 @@
       "createdAt": "2025-05-16T17:29:53Z",
       "updatedAt": "2026-10-15T08:17:10Z",
       "pushedAt": "2026-10-15T08:20:19Z"
-    },
-    "rud1x/me.rud1x.ru": {
-      "name": "me.rud1x.ru",
-      "fullName": "rud1x/me.rud1x.ru",
-      "description": null,
-      "url": "https://github.com/rud1x/me.rud1x.ru",
-      "homepage": "https://merud1xru.vercel.app",
-      "stars": 0,
-      "forks": 0,
-      "watchers": 0,
-      "issues": 0,
-      "language": "CSS",
-      "topics": [],
-      "archived": false,
-      "fork": false,
-      "createdAt": "2026-07-29T17:14:39Z",
-      "updatedAt": "2026-07-29T17:37:49Z",
-      "pushedAt": "2026-07-29T17:37:44Z"
     },
     "rud1x/gitfetch": {
       "name": "gitfetch",
@@ -395,5 +395,5 @@
       "draft": false
     }
   ],
-  "updatedAt": "2026-10-24T16:24:03+00:00"
+  "updatedAt": "2026-10-24T19:11:34+00:00"
 }
