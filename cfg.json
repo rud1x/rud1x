@@ -9,6 +9,24 @@
   "pullRequests": 7,
   "issues": 5,
   "repoStars": {
+    "rud1x/rud1x": {
+      "name": "rud1x",
+      "fullName": "rud1x/rud1x",
+      "description": null,
+      "url": "https://github.com/rud1x/rud1x",
+      "homepage": null,
+      "stars": 3,
+      "forks": 0,
+      "watchers": 3,
+      "issues": 0,
+      "language": null,
+      "topics": [],
+      "archived": false,
+      "fork": false,
+      "createdAt": "2026-05-06T13:00:28Z",
+      "updatedAt": "2026-10-30T16:27:03Z",
+      "pushedAt": "2026-10-30T17:23:37Z"
+    },
     "rud1x/Islet": {
       "name": "Islet",
       "fullName": "rud1x/Islet",
@@ -26,24 +44,6 @@
       "createdAt": "2026-10-30T14:00:31Z",
       "updatedAt": "2026-10-30T14:00:37Z",
       "pushedAt": "2026-10-30T14:00:33Z"
-    },
-    "rud1x/rud1x": {
-      "name": "rud1x",
-      "fullName": "rud1x/rud1x",
-      "description": null,
-      "url": "https://github.com/rud1x/rud1x",
-      "homepage": null,
-      "stars": 3,
-      "forks": 0,
-      "watchers": 3,
-      "issues": 0,
-      "language": null,
-      "topics": [],
-      "archived": false,
-      "fork": false,
-      "createdAt": "2026-05-06T13:00:28Z",
-      "updatedAt": "2026-10-30T09:27:25Z",
-      "pushedAt": "2026-10-30T09:27:22Z"
     },
     "rud1x/NeoShell": {
       "name": "NeoShell",
@@ -413,5 +413,5 @@
       "draft": false
     }
   ],
-  "updatedAt": "2026-10-30T16:26:57+00:00"
+  "updatedAt": "2026-10-30T21:18:27+00:00"
 }
