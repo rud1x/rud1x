@@ -1,7 +1,18 @@
 {
-  "updatedAt": "2026-10-31T14:11:42+00:00",
-  "total": 9,
+  "updatedAt": "2026-10-31T18:59:40+00:00",
+  "total": 10,
   "releases": [
+    {
+      "type": "release",
+      "repo": "rud1x/Istel",
+      "title": "Istel - v1.0.0",
+      "tag": "v1.0.0",
+      "body": "Первый публичный релиз Istel — оверлей-островок для Windows. Что внутри - **Музыка** — SMTC (Spotify, Apple Music, Яндекс Музыка, браузеры), play/pause, перемотка, обложка с синхронизацией цвета, Disc",
+      "url": "https://github.com/rud1x/Istel/releases/tag/v1.0.0",
+      "date": "2026-10-31T14:12:31Z",
+      "prerelease": false,
+      "draft": false
+    },
     {
       "type": "release",
       "repo": "rud1x/NeoShell",
