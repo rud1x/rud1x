@@ -5,28 +5,10 @@
   "followers": 11,
   "following": 3,
   "gists": 0,
-  "totalCommits": 312,
+  "totalCommits": 314,
   "pullRequests": 7,
   "issues": 5,
   "repoStars": {
-    "rud1x/rud1x": {
-      "name": "rud1x",
-      "fullName": "rud1x/rud1x",
-      "description": null,
-      "url": "https://github.com/rud1x/rud1x",
-      "homepage": null,
-      "stars": 3,
-      "forks": 0,
-      "watchers": 3,
-      "issues": 0,
-      "language": null,
-      "topics": [],
-      "archived": false,
-      "fork": false,
-      "createdAt": "2026-05-06T13:00:28Z",
-      "updatedAt": "2026-11-01T01:46:09Z",
-      "pushedAt": "2026-11-01T02:58:58Z"
-    },
     "rud1x/Istel": {
       "name": "Istel",
       "fullName": "rud1x/Istel",
@@ -52,8 +34,26 @@
       "archived": false,
       "fork": false,
       "createdAt": "2026-10-30T14:00:31Z",
-      "updatedAt": "2026-10-31T19:23:23Z",
-      "pushedAt": "2026-10-31T14:33:03Z"
+      "updatedAt": "2026-11-01T10:21:20Z",
+      "pushedAt": "2026-11-01T10:22:42Z"
+    },
+    "rud1x/rud1x": {
+      "name": "rud1x",
+      "fullName": "rud1x/rud1x",
+      "description": null,
+      "url": "https://github.com/rud1x/rud1x",
+      "homepage": null,
+      "stars": 3,
+      "forks": 0,
+      "watchers": 3,
+      "issues": 0,
+      "language": null,
+      "topics": [],
+      "archived": false,
+      "fork": false,
+      "createdAt": "2026-05-06T13:00:28Z",
+      "updatedAt": "2026-11-01T09:34:51Z",
+      "pushedAt": "2026-11-01T09:34:47Z"
     },
     "rud1x/NeoShell": {
       "name": "NeoShell",
@@ -326,6 +326,17 @@
     {
       "type": "release",
       "repo": "rud1x/Istel",
+      "title": "Istel - v1.0.1",
+      "tag": "v1.0.1",
+      "body": "Istel v1.0.1: Патч-релиз Музыка и Discord RPC * Исправлена стабильность: RPC больше не ломается и не замирает после перехода в полноэкранный режим. * Быстрые обложки: картинка трека загружается за 1–3",
+      "url": "https://github.com/rud1x/Istel/releases/tag/v1.0.1",
+      "date": "2026-11-01T10:22:43Z",
+      "prerelease": false,
+      "draft": false
+    },
+    {
+      "type": "release",
+      "repo": "rud1x/Istel",
       "title": "Istel - v1.0.0",
       "tag": "v1.0.0",
       "body": "Первый публичный релиз Istel — оверлей-островок для Windows. Что внутри - **Музыка** — SMTC (Spotify, Apple Music, Яндекс Музыка, браузеры), play/pause, перемотка, обложка с синхронизацией цвета, Disc",
@@ -421,18 +432,7 @@
       "date": "2026-05-15T10:41:15Z",
       "prerelease": false,
       "draft": false
-    },
-    {
-      "type": "release",
-      "repo": "rud1x/NeoShell",
-      "title": "NeoShell v2.0 — Теперь с графическим интерфейсом!",
-      "tag": "v2.0",
-      "body": "🎉 Что нового **Больше никакого WSL и консоли!** NeoShell теперь полноценное Windows-приложение с красивым интерфейсом. ⚡ Просто скачай и запусти: 1. Скачай `NeoShell_v2.0.zip` 2. Запусти `NeoShell.exe",
-      "url": "https://github.com/rud1x/NeoShell/releases/tag/v2.0",
-      "date": "2026-05-05T17:09:00Z",
-      "prerelease": false,
-      "draft": false
     }
   ],
-  "updatedAt": "2026-11-01T08:34:46+00:00"
+  "updatedAt": "2026-11-01T15:41:17+00:00"
 }
