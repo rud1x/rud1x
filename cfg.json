@@ -1,7 +1,7 @@
 {
   "repos": 12,
-  "stars": 106,
-  "forks": 10,
+  "stars": 108,
+  "forks": 11,
   "followers": 11,
   "following": 3,
   "gists": 0,
@@ -9,34 +9,16 @@
   "pullRequests": 7,
   "issues": 5,
   "repoStars": {
-    "rud1x/rud1x": {
-      "name": "rud1x",
-      "fullName": "rud1x/rud1x",
-      "description": null,
-      "url": "https://github.com/rud1x/rud1x",
-      "homepage": null,
-      "stars": 3,
-      "forks": 0,
-      "watchers": 3,
-      "issues": 0,
-      "language": null,
-      "topics": [],
-      "archived": false,
-      "fork": false,
-      "createdAt": "2026-05-06T13:00:28Z",
-      "updatedAt": "2026-11-03T07:28:26Z",
-      "pushedAt": "2026-11-03T07:28:22Z"
-    },
     "rud1x/Istel": {
       "name": "Istel",
       "fullName": "rud1x/Istel",
       "description": "Оверлей в стиле Dynamic Island для Windows: управление музыкой, история буфера обмена, полка, ярлыки, календарь, Pomodoro, погода, батарея и Discord Rich Presence. Electron + React.",
       "url": "https://github.com/rud1x/Istel",
       "homepage": "",
-      "stars": 4,
-      "forks": 0,
-      "watchers": 4,
-      "issues": 0,
+      "stars": 6,
+      "forks": 1,
+      "watchers": 6,
+      "issues": 2,
       "language": "JavaScript",
       "topics": [
         "always-on-top",
@@ -52,8 +34,26 @@
       "archived": false,
       "fork": false,
       "createdAt": "2026-10-30T14:00:31Z",
-      "updatedAt": "2026-11-01T10:21:20Z",
+      "updatedAt": "2026-11-03T19:22:46Z",
       "pushedAt": "2026-11-01T10:22:42Z"
+    },
+    "rud1x/rud1x": {
+      "name": "rud1x",
+      "fullName": "rud1x/rud1x",
+      "description": null,
+      "url": "https://github.com/rud1x/rud1x",
+      "homepage": null,
+      "stars": 3,
+      "forks": 0,
+      "watchers": 3,
+      "issues": 0,
+      "language": null,
+      "topics": [],
+      "archived": false,
+      "fork": false,
+      "createdAt": "2026-05-06T13:00:28Z",
+      "updatedAt": "2026-11-03T15:43:19Z",
+      "pushedAt": "2026-11-03T18:45:40Z"
     },
     "rud1x/NeoShell": {
       "name": "NeoShell",
@@ -434,5 +434,5 @@
       "draft": false
     }
   ],
-  "updatedAt": "2026-11-03T15:43:11+00:00"
+  "updatedAt": "2026-11-03T21:25:54+00:00"
 }
