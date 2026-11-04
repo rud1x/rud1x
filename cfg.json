@@ -1,6 +1,6 @@
 {
   "repos": 12,
-  "stars": 109,
+  "stars": 110,
   "forks": 12,
   "followers": 11,
   "following": 3,
@@ -12,13 +12,13 @@
     "rud1x/Istel": {
       "name": "Istel",
       "fullName": "rud1x/Istel",
-      "description": "Оверлей в стиле Dynamic Island для Windows: управление музыкой, история буфера обмена, полка, ярлыки, календарь, Pomodoro, погода, батарея и Discord Rich Presence. Electron + React.",
+      "description": "Оверлей в стиле Dynamic Island для Windows",
       "url": "https://github.com/rud1x/Istel",
       "homepage": "",
-      "stars": 7,
+      "stars": 8,
       "forks": 2,
-      "watchers": 7,
-      "issues": 2,
+      "watchers": 8,
+      "issues": 7,
       "language": "JavaScript",
       "topics": [
         "always-on-top",
@@ -34,7 +34,7 @@
       "archived": false,
       "fork": false,
       "createdAt": "2026-10-30T14:00:31Z",
-      "updatedAt": "2026-11-03T21:48:57Z",
+      "updatedAt": "2026-11-04T04:47:55Z",
       "pushedAt": "2026-11-01T10:22:42Z"
     },
     "rud1x/rud1x": {
@@ -52,8 +52,8 @@
       "archived": false,
       "fork": false,
       "createdAt": "2026-05-06T13:00:28Z",
-      "updatedAt": "2026-11-03T21:26:07Z",
-      "pushedAt": "2026-11-03T21:26:03Z"
+      "updatedAt": "2026-11-04T01:49:32Z",
+      "pushedAt": "2026-11-04T03:43:56Z"
     },
     "rud1x/NeoShell": {
       "name": "NeoShell",
@@ -434,5 +434,5 @@
       "draft": false
     }
   ],
-  "updatedAt": "2026-11-04T01:49:28+00:00"
+  "updatedAt": "2026-11-04T08:27:17+00:00"
 }
