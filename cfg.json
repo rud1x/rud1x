@@ -9,6 +9,24 @@
   "pullRequests": 7,
   "issues": 5,
   "repoStars": {
+    "rud1x/rud1x": {
+      "name": "rud1x",
+      "fullName": "rud1x/rud1x",
+      "description": null,
+      "url": "https://github.com/rud1x/rud1x",
+      "homepage": null,
+      "stars": 3,
+      "forks": 0,
+      "watchers": 3,
+      "issues": 0,
+      "language": null,
+      "topics": [],
+      "archived": false,
+      "fork": false,
+      "createdAt": "2026-05-06T13:00:28Z",
+      "updatedAt": "2026-11-05T11:46:21Z",
+      "pushedAt": "2026-11-05T19:11:16Z"
+    },
     "rud1x/Istel": {
       "name": "Istel",
       "fullName": "rud1x/Istel",
@@ -36,24 +54,6 @@
       "createdAt": "2026-10-30T14:00:31Z",
       "updatedAt": "2026-11-05T06:23:46Z",
       "pushedAt": "2026-11-01T10:22:42Z"
-    },
-    "rud1x/rud1x": {
-      "name": "rud1x",
-      "fullName": "rud1x/rud1x",
-      "description": null,
-      "url": "https://github.com/rud1x/rud1x",
-      "homepage": null,
-      "stars": 3,
-      "forks": 0,
-      "watchers": 3,
-      "issues": 0,
-      "language": null,
-      "topics": [],
-      "archived": false,
-      "fork": false,
-      "createdAt": "2026-05-06T13:00:28Z",
-      "updatedAt": "2026-11-05T03:01:19Z",
-      "pushedAt": "2026-11-05T04:01:44Z"
     },
     "rud1x/rud1x.ru": {
       "name": "rud1x.ru",
@@ -434,5 +434,5 @@
       "draft": false
     }
   ],
-  "updatedAt": "2026-11-05T11:46:15+00:00"
+  "updatedAt": "2026-11-05T19:21:02+00:00"
 }
