@@ -1,7 +1,29 @@
 {
-  "updatedAt": "2026-11-06T07:33:31+00:00",
-  "total": 11,
+  "updatedAt": "2026-11-06T15:33:21+00:00",
+  "total": 13,
   "releases": [
+    {
+      "type": "release",
+      "repo": "rud1x/Istel",
+      "title": "Istel - v1.1.0",
+      "tag": "v1.1.0",
+      "body": "What's Changed * **feat:** switch to `wttr.in` for reliable weather data, parse extended fields, remove `reduceMotion` setting by @rud1x in v1.1.0 * **fix:** improve audio visualizer pulse (resume con",
+      "url": "https://github.com/rud1x/Istel/releases/tag/v1.1.0",
+      "date": "2026-11-06T12:28:22Z",
+      "prerelease": false,
+      "draft": false
+    },
+    {
+      "type": "release",
+      "repo": "rud1x/Istel",
+      "title": "Istel - v1.0.2",
+      "tag": "v1.0.2",
+      "body": "What's Changed * Perf/reduce cpu by @aallaguly01 in https://github.com/rud1x/Istel/pull/2 * Add monitor selection for the island by @aallaguly01 in https://github.com/rud1x/Istel/pull/1 New Contributo",
+      "url": "https://github.com/rud1x/Istel/releases/tag/v1.0.2",
+      "date": "2026-11-06T09:12:52Z",
+      "prerelease": false,
+      "draft": false
+    },
     {
       "type": "release",
       "repo": "rud1x/Istel",
