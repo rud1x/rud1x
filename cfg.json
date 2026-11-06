@@ -2,13 +2,31 @@
   "repos": 12,
   "stars": 113,
   "forks": 11,
-  "followers": 11,
+  "followers": 12,
   "following": 3,
   "gists": 0,
-  "totalCommits": 333,
+  "totalCommits": 334,
   "pullRequests": 7,
   "issues": 5,
   "repoStars": {
+    "rud1x/rud1x": {
+      "name": "rud1x",
+      "fullName": "rud1x/rud1x",
+      "description": null,
+      "url": "https://github.com/rud1x/rud1x",
+      "homepage": null,
+      "stars": 3,
+      "forks": 0,
+      "watchers": 3,
+      "issues": 0,
+      "language": null,
+      "topics": [],
+      "archived": false,
+      "fork": false,
+      "createdAt": "2026-05-06T13:00:28Z",
+      "updatedAt": "2026-11-06T15:33:26Z",
+      "pushedAt": "2026-11-06T18:38:26Z"
+    },
     "rud1x/Istel": {
       "name": "Istel",
       "fullName": "rud1x/Istel",
@@ -36,24 +54,6 @@
       "createdAt": "2026-10-30T14:00:31Z",
       "updatedAt": "2026-11-06T12:34:31Z",
       "pushedAt": "2026-11-06T12:34:27Z"
-    },
-    "rud1x/rud1x": {
-      "name": "rud1x",
-      "fullName": "rud1x/rud1x",
-      "description": null,
-      "url": "https://github.com/rud1x/rud1x",
-      "homepage": null,
-      "stars": 3,
-      "forks": 0,
-      "watchers": 3,
-      "issues": 0,
-      "language": null,
-      "topics": [],
-      "archived": false,
-      "fork": false,
-      "createdAt": "2026-05-06T13:00:28Z",
-      "updatedAt": "2026-11-06T07:33:36Z",
-      "pushedAt": "2026-11-06T07:33:32Z"
     },
     "rud1x/rud1x.ru": {
       "name": "rud1x.ru",
@@ -434,5 +434,5 @@
       "draft": false
     }
   ],
-  "updatedAt": "2026-11-06T15:33:21+00:00"
+  "updatedAt": "2026-11-06T21:13:03+00:00"
 }
