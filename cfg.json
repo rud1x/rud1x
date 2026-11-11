@@ -1,6 +1,6 @@
 {
   "repos": 12,
-  "stars": 114,
+  "stars": 115,
   "forks": 11,
   "followers": 12,
   "following": 3,
@@ -9,6 +9,34 @@
   "pullRequests": 7,
   "issues": 5,
   "repoStars": {
+    "rud1x/Istel": {
+      "name": "Istel",
+      "fullName": "rud1x/Istel",
+      "description": "Оверлей в стиле Dynamic Island для Windows",
+      "url": "https://github.com/rud1x/Istel",
+      "homepage": "",
+      "stars": 11,
+      "forks": 1,
+      "watchers": 11,
+      "issues": 5,
+      "language": "JavaScript",
+      "topics": [
+        "always-on-top",
+        "clipboard",
+        "dynamic-island",
+        "electron",
+        "media-controls",
+        "overlay",
+        "pomodoro",
+        "react",
+        "windows"
+      ],
+      "archived": false,
+      "fork": false,
+      "createdAt": "2026-10-30T14:00:31Z",
+      "updatedAt": "2026-11-11T04:18:20Z",
+      "pushedAt": "2026-11-06T12:34:27Z"
+    },
     "rud1x/rud1x": {
       "name": "rud1x",
       "fullName": "rud1x/rud1x",
@@ -24,8 +52,8 @@
       "archived": false,
       "fork": false,
       "createdAt": "2026-05-06T13:00:28Z",
-      "updatedAt": "2026-11-10T22:43:50Z",
-      "pushedAt": "2026-11-10T22:43:46Z"
+      "updatedAt": "2026-11-11T02:28:28Z",
+      "pushedAt": "2026-11-11T03:35:47Z"
     },
     "rud1x/NeoShell": {
       "name": "NeoShell",
@@ -59,34 +87,6 @@
       "createdAt": "2026-05-02T16:40:45Z",
       "updatedAt": "2026-11-07T10:05:44Z",
       "pushedAt": "2026-10-24T06:50:58Z"
-    },
-    "rud1x/Istel": {
-      "name": "Istel",
-      "fullName": "rud1x/Istel",
-      "description": "Оверлей в стиле Dynamic Island для Windows",
-      "url": "https://github.com/rud1x/Istel",
-      "homepage": "",
-      "stars": 10,
-      "forks": 1,
-      "watchers": 10,
-      "issues": 5,
-      "language": "JavaScript",
-      "topics": [
-        "always-on-top",
-        "clipboard",
-        "dynamic-island",
-        "electron",
-        "media-controls",
-        "overlay",
-        "pomodoro",
-        "react",
-        "windows"
-      ],
-      "archived": false,
-      "fork": false,
-      "createdAt": "2026-10-30T14:00:31Z",
-      "updatedAt": "2026-11-06T12:34:31Z",
-      "pushedAt": "2026-11-06T12:34:27Z"
     },
     "rud1x/rud1x.ru": {
       "name": "rud1x.ru",
@@ -434,5 +434,5 @@
       "draft": false
     }
   ],
-  "updatedAt": "2026-11-11T02:28:24+00:00"
+  "updatedAt": "2026-11-11T10:10:43+00:00"
 }
