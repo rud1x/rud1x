@@ -1,6 +1,6 @@
 {
   "repos": 12,
-  "stars": 115,
+  "stars": 116,
   "forks": 11,
   "followers": 12,
   "following": 3,
@@ -9,6 +9,34 @@
   "pullRequests": 7,
   "issues": 5,
   "repoStars": {
+    "rud1x/Istel": {
+      "name": "Istel",
+      "fullName": "rud1x/Istel",
+      "description": "Оверлей в стиле Dynamic Island для Windows",
+      "url": "https://github.com/rud1x/Istel",
+      "homepage": "",
+      "stars": 12,
+      "forks": 1,
+      "watchers": 12,
+      "issues": 5,
+      "language": "JavaScript",
+      "topics": [
+        "always-on-top",
+        "clipboard",
+        "dynamic-island",
+        "electron",
+        "media-controls",
+        "overlay",
+        "pomodoro",
+        "react",
+        "windows"
+      ],
+      "archived": false,
+      "fork": false,
+      "createdAt": "2026-10-30T14:00:31Z",
+      "updatedAt": "2026-11-13T06:01:29Z",
+      "pushedAt": "2026-11-06T12:34:27Z"
+    },
     "rud1x/HuroBot_tg": {
       "name": "HuroBot_tg",
       "fullName": "rud1x/HuroBot_tg",
@@ -53,35 +81,7 @@
       "fork": false,
       "createdAt": "2026-05-06T13:00:28Z",
       "updatedAt": "2026-11-12T09:05:58Z",
-      "pushedAt": "2026-11-13T03:56:01Z"
-    },
-    "rud1x/Istel": {
-      "name": "Istel",
-      "fullName": "rud1x/Istel",
-      "description": "Оверлей в стиле Dynamic Island для Windows",
-      "url": "https://github.com/rud1x/Istel",
-      "homepage": "",
-      "stars": 11,
-      "forks": 1,
-      "watchers": 11,
-      "issues": 5,
-      "language": "JavaScript",
-      "topics": [
-        "always-on-top",
-        "clipboard",
-        "dynamic-island",
-        "electron",
-        "media-controls",
-        "overlay",
-        "pomodoro",
-        "react",
-        "windows"
-      ],
-      "archived": false,
-      "fork": false,
-      "createdAt": "2026-10-30T14:00:31Z",
-      "updatedAt": "2026-11-11T04:18:20Z",
-      "pushedAt": "2026-11-06T12:34:27Z"
+      "pushedAt": "2026-11-13T04:39:39Z"
     },
     "rud1x/NeoShell": {
       "name": "NeoShell",
@@ -434,5 +434,5 @@
       "draft": false
     }
   ],
-  "updatedAt": "2026-11-13T04:39:38+00:00"
+  "updatedAt": "2026-11-13T12:46:30+00:00"
 }
