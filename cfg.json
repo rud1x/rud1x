@@ -1,7 +1,7 @@
 {
   "repos": 12,
-  "stars": 116,
-  "forks": 11,
+  "stars": 114,
+  "forks": 10,
   "followers": 12,
   "following": 3,
   "gists": 0,
@@ -9,6 +9,65 @@
   "pullRequests": 7,
   "issues": 5,
   "repoStars": {
+    "rud1x/NeoShell": {
+      "name": "NeoShell",
+      "fullName": "rud1x/NeoShell",
+      "description": "Управляй своим ПК с телефона через Wi-Fi.",
+      "url": "https://github.com/rud1x/NeoShell",
+      "homepage": "https://neoshell.rud1x.ru/",
+      "stars": 56,
+      "forks": 5,
+      "watchers": 56,
+      "issues": 0,
+      "language": "CSS",
+      "topics": [
+        "desktop-app",
+        "easy-to-us",
+        "easydownload",
+        "local-network",
+        "phone-as-remote",
+        "python",
+        "qr-code",
+        "remote-control",
+        "self-hosted",
+        "web-app",
+        "wifi",
+        "windows",
+        "windows-11",
+        "windows-tools"
+      ],
+      "archived": false,
+      "fork": false,
+      "createdAt": "2026-05-02T16:40:45Z",
+      "updatedAt": "2026-11-15T16:15:17Z",
+      "pushedAt": "2026-10-24T06:50:58Z"
+    },
+    "rud1x/GitWid": {
+      "name": "GitWid",
+      "fullName": "rud1x/GitWid",
+      "description": "Удобные виджеты на рабочий стол для просмотра вашей статистики на GitHub",
+      "url": "https://github.com/rud1x/GitWid",
+      "homepage": "",
+      "stars": 6,
+      "forks": 2,
+      "watchers": 6,
+      "issues": 0,
+      "language": "PowerShell",
+      "topics": [
+        "githib-widgets",
+        "githubstats",
+        "gitwid",
+        "rainmeter",
+        "stats",
+        "widget",
+        "widgets-stats"
+      ],
+      "archived": false,
+      "fork": false,
+      "createdAt": "2026-05-14T18:03:22Z",
+      "updatedAt": "2026-11-15T16:14:56Z",
+      "pushedAt": "2026-05-15T10:46:11Z"
+    },
     "rud1x/Istel": {
       "name": "Istel",
       "fullName": "rud1x/Istel",
@@ -81,40 +140,7 @@
       "fork": false,
       "createdAt": "2026-05-06T13:00:28Z",
       "updatedAt": "2026-11-12T09:05:58Z",
-      "pushedAt": "2026-11-15T07:26:50Z"
-    },
-    "rud1x/NeoShell": {
-      "name": "NeoShell",
-      "fullName": "rud1x/NeoShell",
-      "description": "Управляй своим ПК с телефона через Wi-Fi.",
-      "url": "https://github.com/rud1x/NeoShell",
-      "homepage": "https://neoshell.rud1x.ru/",
-      "stars": 57,
-      "forks": 5,
-      "watchers": 57,
-      "issues": 0,
-      "language": "CSS",
-      "topics": [
-        "desktop-app",
-        "easy-to-us",
-        "easydownload",
-        "local-network",
-        "phone-as-remote",
-        "python",
-        "qr-code",
-        "remote-control",
-        "self-hosted",
-        "web-app",
-        "wifi",
-        "windows",
-        "windows-11",
-        "windows-tools"
-      ],
-      "archived": false,
-      "fork": false,
-      "createdAt": "2026-05-02T16:40:45Z",
-      "updatedAt": "2026-11-07T10:05:44Z",
-      "pushedAt": "2026-10-24T06:50:58Z"
+      "pushedAt": "2026-11-15T18:07:00Z"
     },
     "rud1x/rud1x.ru": {
       "name": "rud1x.ru",
@@ -254,32 +280,6 @@
       "createdAt": "2026-05-06T12:38:25Z",
       "updatedAt": "2026-06-05T07:47:25Z",
       "pushedAt": "2026-06-05T06:52:53Z"
-    },
-    "rud1x/GitWid": {
-      "name": "GitWid",
-      "fullName": "rud1x/GitWid",
-      "description": "Удобные виджеты на рабочий стол для просмотра вашей статистики на GitHub",
-      "url": "https://github.com/rud1x/GitWid",
-      "homepage": "",
-      "stars": 7,
-      "forks": 3,
-      "watchers": 7,
-      "issues": 0,
-      "language": "PowerShell",
-      "topics": [
-        "githib-widgets",
-        "githubstats",
-        "gitwid",
-        "rainmeter",
-        "stats",
-        "widget",
-        "widgets-stats"
-      ],
-      "archived": false,
-      "fork": false,
-      "createdAt": "2026-05-14T18:03:22Z",
-      "updatedAt": "2026-06-02T15:05:37Z",
-      "pushedAt": "2026-05-15T10:46:11Z"
     },
     "rud1x/terminal-portfolio": {
       "name": "terminal-portfolio",
@@ -434,5 +434,5 @@
       "draft": false
     }
   ],
-  "updatedAt": "2026-11-15T15:12:26+00:00"
+  "updatedAt": "2026-11-15T20:43:02+00:00"
 }
