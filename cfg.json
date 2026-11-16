@@ -1,7 +1,7 @@
 {
   "repos": 12,
   "stars": 114,
-  "forks": 10,
+  "forks": 9,
   "followers": 12,
   "following": 3,
   "gists": 0,
@@ -16,7 +16,7 @@
       "url": "https://github.com/rud1x/NeoShell",
       "homepage": "https://neoshell.rud1x.ru/",
       "stars": 56,
-      "forks": 5,
+      "forks": 4,
       "watchers": 56,
       "issues": 0,
       "language": "CSS",
@@ -140,7 +140,7 @@
       "fork": false,
       "createdAt": "2026-05-06T13:00:28Z",
       "updatedAt": "2026-11-12T09:05:58Z",
-      "pushedAt": "2026-11-15T20:43:05Z"
+      "pushedAt": "2026-11-16T03:36:35Z"
     },
     "rud1x/rud1x.ru": {
       "name": "rud1x.ru",
@@ -434,5 +434,5 @@
       "draft": false
     }
   ],
-  "updatedAt": "2026-11-16T00:37:47+00:00"
+  "updatedAt": "2026-11-16T07:32:53+00:00"
 }
