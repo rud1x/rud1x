@@ -1,6 +1,6 @@
 {
   "repos": 12,
-  "stars": 114,
+  "stars": 117,
   "forks": 9,
   "followers": 12,
   "following": 3,
@@ -15,9 +15,9 @@
       "description": "Управляй своим ПК с телефона через Wi-Fi.",
       "url": "https://github.com/rud1x/NeoShell",
       "homepage": "https://neoshell.rud1x.ru/",
-      "stars": 56,
+      "stars": 59,
       "forks": 4,
-      "watchers": 56,
+      "watchers": 59,
       "issues": 0,
       "language": "CSS",
       "topics": [
@@ -39,7 +39,7 @@
       "archived": false,
       "fork": false,
       "createdAt": "2026-05-02T16:40:45Z",
-      "updatedAt": "2026-11-15T16:15:17Z",
+      "updatedAt": "2026-11-16T10:40:30Z",
       "pushedAt": "2026-10-24T06:50:58Z"
     },
     "rud1x/GitWid": {
@@ -140,7 +140,7 @@
       "fork": false,
       "createdAt": "2026-05-06T13:00:28Z",
       "updatedAt": "2026-11-12T09:05:58Z",
-      "pushedAt": "2026-11-16T03:36:35Z"
+      "pushedAt": "2026-11-16T07:32:55Z"
     },
     "rud1x/rud1x.ru": {
       "name": "rud1x.ru",
@@ -434,5 +434,5 @@
       "draft": false
     }
   ],
-  "updatedAt": "2026-11-16T07:32:53+00:00"
+  "updatedAt": "2026-11-16T17:47:23+00:00"
 }
